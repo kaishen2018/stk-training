@@ -13,7 +13,7 @@
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
 <div>
-  <!-- left Main interface outer layer | start-->
+  <!--left Main interface outer layer | start -->
   <div class="myPages">
     <!-- left Main interface | start -->
     <div class="onPages container">
@@ -33,7 +33,7 @@
       </div>
       <!-- top head | end -->
       <!-- login and register page | start -->
-      <div ng-hide="" class="loRe-big container">
+      <div ng-show="" class="loRe-big container">
         <div class="loRe-mid">
           <div class="mid-title">
             <p><strong>Configuration Manager</strong></p>
@@ -169,7 +169,8 @@
   <!-- left Main interface | end  -->
 
   <!-- Simulation dialog | start -->
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+       aria-hidden="true">
     <div style="border-bottom: none" class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       <div style="width: 100%; text-align: center">
@@ -185,7 +186,8 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="home">
-            <input style="width: 95%;" type="text" value="https://modao.cc/app/LqI0k5i9pwwXs4tgKvk2qldsKl6zo6U">
+            <input style="width: 95%; height: 30px;" type="text"
+                   value="https://modao.cc/app/LqI0k5i9pwwXs4tgKvk2qldsKl6zo6U">
           </div>
           <div class="tab-pane" id="profile">
             <textarea style="width: 95%; height: 80px;" id="myTestarea"></textarea>
@@ -193,16 +195,23 @@
         </div>
         <h4>Who can access the sharing</h4>
 
-        <div class="" data-toggle="radios">
-          <label class="">
+        <div class="txt-left-argin myfont14" data-toggle="radios">
+          <label style="margin-bottom: 30px;" class="">
             <input type="radio" name="options" id="option1">
             Only collaborators in team or project.
           </label>
-          <label class="">
+          <label style="margin-bottom: 20px;" class="">
             <input type="radio" name="options" id="option2">
             Anyone who know URL and password.
           </label>
+          <input style="width: 95%; height: 30px;" type="text" placeholder="Password(Optional)">
 
+        </div>
+        <div class="txt-left-argin myfont14">
+          <label style="margin-bottom: 20px;"><input type="checkbox">&nbsp;Hightlight link areas on screen
+            clicking.</label>
+          <label style="margin-bottom: 20px;"><input type="checkbox">&nbsp;Check this if you'd like play app
+            directly.</label>
         </div>
       </div>
       <script>
@@ -212,10 +221,10 @@
             $(this).tab('show');
           })
           $('#myTestarea').val('<iframe src="https://modao.cc/app/LqI0k5i9pwwXs4tgKvk2qldsKl6zo6U/embed" width="1104" height="848" allowTransparency="true" frameborder="0"></iframe>')
-              .focus(function(){
-            this.select();
-          });
-          $(":text").focus(function(){
+              .focus(function () {
+                this.select();
+              });
+          $(":text").focus(function () {
             this.select();
           });
 
@@ -226,8 +235,31 @@
   </div>
   <!-- Simulation dialog | end -->
 
+  <div id="rig-close-page" class="rig-close-page teeth-white">
+    <div class="close-page-head">
+      <span class="myfont18">Screen Panel</span>
+      <button id="close-btn" class="close-btn"><i class="fa fa-times"></i></button>
+    </div>
+    <div id="close-page-nav" class="close-page-nav">
+      <div><i class="fa fa-circle-o"></i><span>Home</span></div>
+      <div><i class="fa fa-circle-o"></i><span>Dashboard</span></div>
+      <div><i class="fa fa-circle-o"></i><span>User Management</span></div>
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      $("#close-btn").click(function () {
+        $("#rig-close-page").css({width: 0});
+      });
+      $("#close-page-nav div span").parent().click(function () {
+        console.log(this.innerHTML);
+        $(this).css({color: "#f75b50"}).siblings().css({color: "#636a74"});
+      })
+    })
+  </script>
   <!-- right float navigation bar | start -->
-  <div class="mySpy">
+  <div id="mySpy" class="mySpy">
     <ul>
       <li><a href="#myModal" data-toggle="modal"><i class="fa fa-share-alt"></i></a></li>
       <li><a href=""><i class="fa fa-navicon"></i></a></li>
@@ -237,10 +269,18 @@
       <li><a href=""><i class="fa fa-search-minus"></i></a></li>
     </ul>
   </div>
+
+  <script>
+    $(function () {
+      $('#mySpy ul li').eq(1).click(function () {
+        $("#rig-close-page").css({width: 320});
+      });
+    })
+  </script>
   <!--  right float navigation bar | end -->
 </div>
 
-
-<script src="js/myjs/controller/myAppCo.js"></script>
+<script></script>
+<script src="js/myjs/controller/myAppColl.js"></script>
 </body>
 </html>

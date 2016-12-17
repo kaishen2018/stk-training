@@ -19,7 +19,8 @@ body {
 .teeth-white {
     background-color: #fbfbfc;
 }
-.navy-blue{
+
+.navy-blue {
     background-color: #005e89;
 }
 
@@ -27,17 +28,19 @@ body {
     width: 110px;
     height: 40px;
     border-radius: 10px;
-    border: 1px solid #e9e9e9 ;
+    border: 1px solid #e9e9e9;
 
 }
 
-.myfont14{
+.myfont14 {
     font-size: 14px;
 }
-.myfont16{
+
+.myfont16 {
     font-size: 16px;
 }
-.myfont18{
+
+.myfont18 {
     font-size: 18px;
 }
 
@@ -66,11 +69,9 @@ body {
     text-align: center;
     margin-top: 30px;
     list-style-type: none;
-
 }
 
 .mySpy ul li a i {
-
     display: inline-block;
     padding-bottom: 20px;
     font-size: 18px;
@@ -79,6 +80,10 @@ body {
 
 .mySpy ul li a {
     color: #2e3845;
+}
+
+.orange-yellow {
+    color: #f75b50;
 }
 
 .mySpy a:hover {
@@ -327,7 +332,8 @@ body {
     height: 340px;
     border-right: 1px solid #005e89;
 }
-.mid-login input{
+
+.mid-login input {
     border-radius: 8px;
     height: 30px;
     width: 220px;
@@ -338,35 +344,91 @@ body {
     width: 280px;
     height: 340px;
 }
-.mid-register input{
+
+.mid-register input {
     border-radius: 10px;
     height: 30px;
     width: 220px;
 }
 
 /*modal*/
-.modal{
-    width:640px;
+.modal {
+    width: 640px;
     height: auto;
 }
-.modal-header{
+
+.modal-header {
 
 }
-.modal-body{
+
+.modal-body {
     text-align: center;
     margin-top: 30px;
-
 }
 
-.body-center{
+.body-center {
     width: 480px;
     margin-left: 70px;
     margin-top: 10px;
 }
 
-.body-center h4{
+.body-center h4 {
     text-align: left;
     margin: 25px 0 15px 0;
     font-size: 14px;
     border-bottom: 1px solid #cccccc;
 }
+
+/* radio ground*/
+.txt-left-argin {
+    text-align: left;
+}
+
+/*On the right side can close the page */
+
+.rig-close-page {
+    position: fixed;
+    right: 52px;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    color: #636a74;
+    transition: width 0.2s;
+}
+
+.rig-close-page .close-page-head {
+    text-align: center;
+    line-height: 50px;
+    display: inline;
+}
+
+.rig-close-page .close-page-head span {
+    margin-left: 100px;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 65px;
+}
+
+.rig-close-page .close-page-nav {
+    width: 100%;
+}
+
+.rig-close-page .close-page-nav div {
+    cursor: pointer;
+    height: auto;
+    padding-left: 30px;
+    line-height: 50px;
+    border-top: 1px solid #e6e6e8;
+}
+
+.rig-close-page .close-page-nav span {
+    margin-left: 10px;
+
+}
+
