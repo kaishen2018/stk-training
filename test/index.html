@@ -26,14 +26,14 @@
           <div style="margin-left: 15px;margin-top: 5px;height: 26px; width: 850px; float: left; font-size: 20px;">
             <p>Configuration Manager</p>
           </div>
-          <div style=" " class="tit-right">
+          <div ng-show="isshow" style=" " class="tit-right">
             <p>UserA<i class="fa fa-caret-down"></i></p>
           </div>
         </div>
       </div>
       <!-- top head | end -->
       <!-- login and register page | start -->
-      <div ng-show="" class="loRe-big container">
+      <div ng-hide="error || incomplete" class="loRe-big container">
         <div class="loRe-mid">
           <div class="mid-title">
             <p><strong>Configuration Manager</strong></p>
