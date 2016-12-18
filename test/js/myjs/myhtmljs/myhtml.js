@@ -24,6 +24,7 @@ $(function () {
     $(this).css({color: "#f75b50"}).siblings().css({color: "#636a74"});
   });
 
+
   $('#mySpy ul li').eq(1).click(function () {
     console.log($("#rig-close-page").css("width"));
     if ($("#rig-close-page").css("width") == "320px"){

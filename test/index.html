@@ -11,7 +11,7 @@
   <script src="js/requirejs/bootstrap.min.js"></script>
   <script src="js/requirejs/angular-1.4.6.min.js"></script>
 </head>
-<body ng-app="myApp" ng-controller="myCtrl">
+<body onselectstart="return false" ng-app="myApp" ng-controller="myCtrl">
 <div>
   <!--left Main interface outer layer | start -->
   <div class="myPages">
@@ -26,14 +26,14 @@
           <div style="margin-left: 15px;margin-top: 5px;height: 26px; width: 850px; float: left; font-size: 20px;">
             <p>Configuration Manager</p>
           </div>
-          <div ng-show="isshow" style=" " class="tit-right">
+          <div ng-show="incomplete" style=" " class="tit-right">
             <p>UserA<i class="fa fa-caret-down"></i></p>
           </div>
         </div>
       </div>
       <!-- top head | end -->
       <!-- login and register page | start -->
-      <div ng-hide="error || incomplete" class="loRe-big container">
+      <div ng-hide="initStatus || incomplete" class="loRe-big container">
         <div class="loRe-mid">
           <div class="mid-title">
             <p><strong>Configuration Manager</strong></p>
@@ -45,7 +45,7 @@
               <div><input type="text" placeholder="User Name"></div>
               <div style="margin-top: 20px;"><input type="text" placeholder="Password"></div>
               <div style="margin-top: 30px;">
-                <button class="mybtn-style teeth-white">Login</button>
+                <button ng-click="login()" class="mybtn-style teeth-white">Login</button>
               </div>
             </div>
             <div class="mid-register">
@@ -63,19 +63,19 @@
       </div>
       <!-- login and register page | end -->
       <!-- middle pages | start -->
-      <div ng-hide="ishide">
+      <div ng-show="incomplete">
         <!-- left navigation | start -->
         <div class="right-nav">
-          <div class="rig-pad">
+          <div class="rig-pad" ng-click="switch(1)">
             <p><i class="fa fa-home"></i>&nbsp; Dashboard</p>
           </div>
-          <div class="rig-pad">
+          <div class="rig-pad" ng-click="switch(2)">
             <p><i class="fa fa-users"></i>&nbsp; User Management</p>
           </div>
         </div>
         <!-- left navigation | end -->
         <!-- Navigation corresponding interface | start -->
-        <div ng-hide="ishide" class="mid-page">
+        <div ng-show="show1" class="mid-page">
           <div class="mid-page-top">
             <p style="color: #004a74; font-size: 17px; white-space: nowrap;">Dashboard</p>
           </div>
@@ -110,7 +110,7 @@
           </div>
         </div>
 
-        <div class="mid-page">
+        <div ng-show="show2" class="mid-page">
           <div class="mid-page-top">
             <p style="color: #004a74; font-size: 17px; white-space: nowrap;">User Management</p>
           </div>
@@ -214,22 +214,6 @@
             directly.</label>
         </div>
       </div>
-      <script>
-        $(function () {
-          $('#myTab a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-          })
-          $('#myTestarea').val('<iframe src="https://modao.cc/app/LqI0k5i9pwwXs4tgKvk2qldsKl6zo6U/embed" width="1104" height="848" allowTransparency="true" frameborder="0"></iframe>')
-              .focus(function () {
-                this.select();
-              });
-          $(":text").focus(function () {
-            this.select();
-          });
-
-        })
-      </script>
     </div>
 
   </div>
@@ -241,22 +225,12 @@
       <button id="close-btn" class="close-btn"><i class="fa fa-times"></i></button>
     </div>
     <div id="close-page-nav" class="close-page-nav">
-      <div><i class="fa fa-circle-o"></i><span>Home</span></div>
-      <div><i class="fa fa-circle-o"></i><span>Dashboard</span></div>
-      <div><i class="fa fa-circle-o"></i><span>User Management</span></div>
+      <div ng-click="switch(0)" required><i class="fa fa-circle-o"></i><span>Home</span></div>
+      <div ng-click="switch(1)"><i class="fa fa-circle-o"></i><span>Dashboard</span></div>
+      <div ng-click="switch(2)"><i class="fa fa-circle-o"></i><span>User Management</span></div>
     </div>
   </div>
 
-  <script>
-    $(function () {
-      $("#close-btn").click(function () {
-        $("#rig-close-page").css({width: 0});
-      });
-      $("#close-page-nav div span").parent().click(function () {
-        $(this).css({color: "#f75b50"}).siblings().css({color: "#636a74"});
-      })
-    })
-  </script>
   <!-- right float navigation bar | start -->
   <div id="mySpy" class="mySpy">
     <ul>
@@ -269,23 +243,10 @@
     </ul>
   </div>
 
-  <script>
-    $(function () {
-      $('#mySpy ul li').eq(1).click(function () {
-        console.log($("#rig-close-page").css("width"));
-        if ($("#rig-close-page").css("width") == "320px"){
-          $("#rig-close-page").css({width: 0});
-        }else{
-          $("#rig-close-page").css({width: 320});
-        }
-      });
-      $('#mySpy').tooltip("hide");
-    })
-  </script>
   <!--  right float navigation bar | end -->
 </div>
 
-<script></script>
+<script src="js/myjs/myhtmljs/myhtml.js"></script>
 <script src="js/myjs/controller/myAppColl.js"></script>
 </body>
 </html>
