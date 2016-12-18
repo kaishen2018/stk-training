@@ -260,7 +260,7 @@
   <!-- right float navigation bar | start -->
   <div id="mySpy" class="mySpy">
     <ul>
-      <li><a href="#myModal" data-toggle="modal"><i class="fa fa-share-alt"></i></a></li>
+      <li><a href="#myModal" data-toggle="modal" title="sharing"><i class="fa fa-share-alt"></i></a></a></li>
       <li><a href=""><i class="fa fa-navicon"></i></a></li>
       <li><a href=""><i class="fa fa-font"></i></a></li>
       <li><a href=""><i class="fa fa-reply"></i></a></li>
@@ -272,8 +272,14 @@
   <script>
     $(function () {
       $('#mySpy ul li').eq(1).click(function () {
-        $("#rig-close-page").css({width: 320});
+        console.log($("#rig-close-page").css("width"));
+        if ($("#rig-close-page").css("width") == "320px"){
+          $("#rig-close-page").css({width: 0});
+        }else{
+          $("#rig-close-page").css({width: 320});
+        }
       });
+      $('#mySpy').tooltip("hide");
     })
   </script>
   <!--  right float navigation bar | end -->
