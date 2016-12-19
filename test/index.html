@@ -14,7 +14,7 @@
   <script src="js/requirejs/bootstrap.min.js"></script>
 
 </head>
-<body ng-app="myApp" ng-controller="myCtrl">
+<body onselectstart="return false" ng-app="myApp" ng-controller="myCtrl">
 <div>
   <!--left Main interface outer layer | start -->
   <div class="myPages">
@@ -43,8 +43,8 @@
         </div>
       </div>
       <!-- top head | end -->
-      <div ui-view></div>
-
+      <div ui-view=""></div>
+      <div ui-view="pages"></div>
     </div>
     <!--  left Main interface | end -->
 

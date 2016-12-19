@@ -3,8 +3,8 @@ body {
     font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;
     background-color: #e9e9e9;
 }
-a{
-
+p, span{
+    cursor: default;
 }
 .light-blue {
     background-color: #00c0ef;
@@ -110,7 +110,7 @@ a{
     font-style: normal;
     font-size: 18px;
     background-color: #d9edf7;
-    position: fixed;
+
 }
 
 .myPages .onPages .toptitle {
