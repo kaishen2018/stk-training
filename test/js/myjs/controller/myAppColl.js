@@ -4,6 +4,16 @@
 
 var app = angular.module('myApp',[]);
 app.controller('myCtrl',function ($scope) {
+
+  $scope.users = [
+    {name:"Lemon Yang",admin:"Beck",date:"2016-12-13",lastDate:"2016-12-19"},
+    {name:"Lemon Yang",admin:"Beck",date:"2016-12-13",lastDate:"2016-12-19"},
+    {name:"Lemon Yang",admin:"Beck",date:"2016-12-13",lastDate:"2016-12-19"},
+    {name:"Lemon Yang",admin:"Beck",date:"2016-12-13",lastDate:"2016-12-19"}
+  ]
+
+
+
   $scope.isHide = true;
   $scope.isShow = true;
   $scope.show1 = true;

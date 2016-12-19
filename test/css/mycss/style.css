@@ -3,7 +3,9 @@ body {
     font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;
     background-color: #e9e9e9;
 }
+a{
 
+}
 .light-blue {
     background-color: #00c0ef;
 }
@@ -45,6 +47,7 @@ body {
 }
 
 /*right nav start*/
+/*
 .mySpy {
     margin: 0;
     padding: 0;
@@ -89,7 +92,7 @@ body {
 .mySpy a:hover {
     color: #f75b50;
 }
-
+*/
 /*right nav end*/
 
 /*pages start*/
@@ -100,16 +103,18 @@ body {
 }
 
 .myPages .onPages {
-    width: 1024px;
+    display: block;
+    width: 100%;
+    height: 100%;
     font-weight: normal;
     font-style: normal;
     font-size: 18px;
     background-color: #d9edf7;
-    height: 780px;
+    position: fixed;
 }
 
 .myPages .onPages .toptitle {
-    height: 70px;
+    height: 60px;
     background-color: #005e89;
     border-color: #3949ab;
 }
@@ -120,12 +125,35 @@ body {
     padding-top: 20px;
 }
 
-.titleinner .tit-right {
-    width: 100px;
+.tit-lef {
+    width: 1%;
+    margin-left: 3%;
     float: left;
+}
+
+.tit-txt {
+    margin-left: 15px;
     margin-top: 5px;
+    height: 26px;
+    width: 88%;
+    float: left;
+    font-size: 20px;
+}
+
+.titleinner .tit-right {
+    background-color: #fbfbfc;
     cursor: pointer;
 }
+.tit-right a:hover{
+    color: #dd4b39;
+    cursor: pointer;
+}
+
+.menu-nav{
+    background-color: rgb(122, 187, 224);
+    width: 1%;
+}
+
 
 /* pages left nav*/
 .right-nav {
@@ -303,9 +331,11 @@ body {
 /*home login*/
 
 .loRe-big {
-    margin-top: 50px;
     text-align: center;
-    width: 570px;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    padding: auto;
 }
 
 .loRe-big .loRe-mid {
@@ -314,41 +344,41 @@ body {
 }
 
 .mid-title {
-    width: 280px;
-    margin: auto;
+    width: 100%;
+    margin-top: 50px;
     line-height: 60px;
 }
 
 .mid-mid {
     border: 1px solid #005e89;
     float: left;
-    width: 570px;
+
     height: 340px;
 }
 
 .mid-login {
     float: left;
-    width: 280px;
+    width: 50%;
     height: 340px;
     border-right: 1px solid #005e89;
 }
 
 .mid-login input {
-    border-radius: 8px;
+    border-radius: 10px;
     height: 30px;
-    width: 220px;
+    width: 80%;
 }
 
 .mid-register {
     float: left;
-    width: 280px;
+    width: 49%;
     height: 340px;
 }
 
 .mid-register input {
     border-radius: 10px;
     height: 30px;
-    width: 220px;
+    width: 80%;
 }
 
 /*modal*/
