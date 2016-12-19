@@ -17,7 +17,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url:'/pages',
       templateUrl:'./pageNav.html',
       controller:function ($scope) {
-        $scope.$parent.ctrHome.isshow = true;
+        // $scope.$parent.ctrHome.isshow = true;
         console.log("login success");
       }
     })
