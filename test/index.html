@@ -8,10 +8,13 @@
   <link rel="stylesheet" href="css/requirecss/font-awesome-4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/mycss/style.css">
   <script src="js/requirejs/jquery-1.10.2.min.js"></script>
+  <script src="js/requirejs/angular.min.js"></script>
+  <script src="js/requirejs/angular-animate.min.js"></script>
+  <script src="js/requirejs/angular-ui-router.min.js"></script>
   <script src="js/requirejs/bootstrap.min.js"></script>
-  <script src="js/requirejs/angular-1.4.6.min.js"></script>
+
 </head>
-<body onselectstart="return false" ng-app="myApp" ng-controller="myCtrl">
+<body ng-app="myApp" ng-controller="myCtrl">
 <div>
   <!--left Main interface outer layer | start -->
   <div class="myPages">
@@ -26,7 +29,7 @@
           <div class="tit-txt">
             <p>Configuration Manager</p>
           </div>
-          <div class="dropdown" ng-show="incomplete" class="tit-right">
+          <div class="dropdown" ng-show="isshow" class="tit-right">
             <a style="color: #fbfbfc;" class="dropdown-toggle" id="" role="button" data-toggle="dropdown" data-target="#" href="/index.html">
               UserA
               <i class="fa fa-caret-down"></i>
@@ -40,141 +43,12 @@
         </div>
       </div>
       <!-- top head | end -->
-      <!-- login and register page | start -->
-      <div ng-hide="initStatus || incomplete" class="loRe-big ">
-        <div class="row-fluid loRe-mid ">
-          <div class="span12 mid-title">
-            <p><strong>Configuration Manager</strong></p>
-          </div>
-          <div class="mid-mid span12">
-            <div class="mid-login">
-              <div style="padding-top: 15px;"><span><strong>Login</strong></span></div>
-              <div><p style="color: #a39d9c;" class="myfont14">Access your account</p></div>
-              <div><input type="text" placeholder="User Name"></div>
-              <div style="margin-top: 20px;"><input type="text" placeholder="Password"></div>
-              <div style="margin-top: 30px;">
-                <button ng-click="login()" class="mybtn-style teeth-white">Login</button>
-              </div>
-            </div>
-            <div class="mid-register">
-              <div style="padding-top: 15px;"><span><strong>Sign Up</strong></span></div>
-              <div><p style="color: #a39d9c;" class="myfont14">Create a new account</p></div>
-              <div><input type="text" placeholder="User Name"></div>
-              <div style="margin-top: 20px;"><input type="text" placeholder="Password"></div>
-              <div style="margin-top: 20px;"><input type="text" placeholder="Confirm password"></div>
-              <div style="margin-top: 30px;">
-                <button class="mybtn-style navy-blue" style="color: #fff;">Register</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- login and register page | end -->
-      <!-- middle pages | start -->
-      <div ng-show="incomplete">
-        <!-- left navigation | start -->
-        <div class="right-nav">
-          <div class="rig-pad" ng-click="switch(1)">
-            <p><i class="fa fa-home"></i>&nbsp; Dashboard</p>
-          </div>
-          <div class="rig-pad" ng-click="switch(2)">
-            <p><i class="fa fa-users"></i>&nbsp; User Management</p>
-          </div>
-        </div>
-        <!-- left navigation | end -->
-        <!-- Navigation corresponding interface | start -->
-        <div ng-show="show1" class="mid-page">
-          <div class="mid-page-top">
-            <p style="color: #004a74; font-size: 17px; white-space: nowrap;">Dashboard</p>
-          </div>
-          <div class="mid-page-status ">
-            <div class="status-dif">
-              <div class="status-sss light-blue">
-                <p style="font-size: 35px; ">156</p>
-                <p>Total users</p>
-                <div style="height: 30px; opacity: 0.2; border: 1px solid #dddddd; background-color: white; "></div>
-              </div>
-            </div>
-            <div class="status-dif">
-              <div class="status-sss dark-green">
-                <p style="font-size: 35px; ">56</p>
-                <p>New users</p>
-                <div style="height: 30px; opacity: 0.2; border: 1px solid #dddddd; background-color: white; "></div>
-              </div>
-            </div>
-            <div class="status-dif">
-              <div class="status-sss deep-red">
-                <p style="font-size: 35px; ">100</p>
-                <p>Users penging</p>
-                <div style="height: 30px; opacity: 0.2; border: 1px solid #dddddd; background-color: white; "></div>
-              </div>
-            </div>
-          </div>
-          <div class="mid-page-tableinfo">
-            <div style="height: 10px; background-color: #d4d4d4"></div>
-            <div class="info-in"><p style="margin-left: 10px;">用户增长季度报告</p></div>
-            <div class="img-table"><img style=" width: 725px; height: 321px;" src="imgs/raw_1481601315.png" alt="">
-            </div>
-          </div>
-        </div>
+      <div ui-view></div>
 
-        <div ng-show="show2" class="mid-page">
-          <div class="mid-page-top">
-            <p style="color: #004a74; font-size: 17px; white-space: nowrap;">User Management</p>
-          </div>
-          <div class="user">
-            <div class="user-add teeth-white">
-              <span><i class="fa fa-plus" style="font-size: 22px;"></i>&nbsp;&nbsp;Add User</span>
-            </div>
-            <div class="user-details teeth-white">
-              <div class="user-detail teeth-white">
-                <span>User Details</span>
-              </div>
-              <div class="user-table">
-                <table>
-                  <thead>
-                  <tr>
-                    <td>Action</td>
-                    <td>User Name</td>
-                    <td>Created By</td>
-                    <td>Created Date</td>
-                    <td>Last Updated Date</td>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr ng-repeat="user in users">
-                    <div>
-                      <td>
-                        <div><span class="span-blue">Edit</span></div>
-                        <div style="margin-left: 25px;"><span class="span-blue">Delete</span></div>
-                      </td>
-                      <td><span>{{user.name}}</span></td>
-                      <td><span>{{user.admin}}</span></td>
-                      <td><span>{{user.date}}</span></td>
-                      <td><span>{{user.lastDate}}</span></td>
-                    </div>
-                  </tr>
-                  <tr ng-hide="isHide">
-                    <td>
-                      <div><span class="span-blue">Save</span></div>
-                      <div style="margin-left: 25px;"><span class="span-blue">Cancel</span></div>
-                    </td>
-                    <td><input type="text" placeholder="Lemon Yang"></td>
-                    <td><input type="text" placeholder="Lemon Yang"></td>
-                    <td><input type="text" placeholder="2016-12-13"></td>
-                    <td><input type="text" placeholder="2016-12-13"></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Navigation corresponding interface | end -->
-      </div>
-      <!-- middle pages | end -->
     </div>
     <!--  left Main interface | end -->
+
+
   </div>
   <!-- left Main interface | end  -->
 
@@ -257,6 +131,6 @@
 </div>
 
 <script src="js/myjs/myhtmljs/myhtml.js"></script>
-<script src="js/myjs/controller/myAppColl.js"></script>
+<script src="js/myjs/controller/myApp.js"></script>
 </body>
 </html>

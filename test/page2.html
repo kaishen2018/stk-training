@@ -1,0 +1,52 @@
+<div class="mid-page">
+  <div class="mid-page-top">
+    <p style="color: #004a74; font-size: 17px; white-space: nowrap;">User Management</p>
+  </div>
+  <div class="user">
+    <div class="user-add teeth-white">
+      <span><i class="fa fa-plus" style="font-size: 22px;"></i>&nbsp;&nbsp;Add User</span>
+    </div>
+    <div class="user-details teeth-white">
+      <div class="user-detail teeth-white">
+        <span>User Details</span>
+      </div>
+      <div class="user-table">
+        <table>
+          <thead>
+          <tr>
+            <td>Action</td>
+            <td>User Name</td>
+            <td>Created By</td>
+            <td>Created Date</td>
+            <td>Last Updated Date</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="user in users">
+            <div>
+              <td>
+                <div><span class="span-blue">Edit</span></div>
+                <div style="margin-left: 25px;"><span class="span-blue">Delete</span></div>
+              </td>
+              <td><span>{{user.name}}</span></td>
+              <td><span>{{user.admin}}</span></td>
+              <td><span>{{user.date}}</span></td>
+              <td><span>{{user.lastDate}}</span></td>
+            </div>
+          </tr>
+          <tr ng-hide="isHide">
+            <td>
+              <div><span class="span-blue">Save</span></div>
+              <div style="margin-left: 25px;"><span class="span-blue">Cancel</span></div>
+            </td>
+            <td><input type="text" placeholder="Lemon Yang"></td>
+            <td><input type="text" placeholder="Lemon Yang"></td>
+            <td><input type="text" placeholder="2016-12-13"></td>
+            <td><input type="text" placeholder="2016-12-13"></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
