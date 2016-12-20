@@ -1,8 +1,10 @@
 /**
  * Created by Administrator on 2016/12/18.
  */
-$(function () {
 
+
+
+$(function () {
 
   $('#myTab a').click(function (e) {
     e.preventDefault();
@@ -34,4 +36,7 @@ $(function () {
     }
   });
   $('#mySpy').tooltip("hide");
+
+
+
 });
