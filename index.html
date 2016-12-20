@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/view/login_register.css">
+    <link rel="stylesheet" href="css/view/main.css">
+</head>
+<body>
+<div ng-app="myApp">
+    <div ui-view></div>
+</div>
+
+<script src="route/todo.js"></script>
+<script>
+    /*var app1 = angular.module('myApp', ['ngRoute']);
+    app1.config(function ($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'view/login_register.html',
+        }).when('/main', {
+            templateUrl: 'view/main.html',
+        });
+    });*/
+
+   /* var app2 = angular.module('mainApp', ['ngRoute']);
+    app2.config(function ($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'view/dashboard.html',
+        }).when('/dashboard', {
+            templateUrl: 'view/dashboard.html',
+        }).when('/user', {
+            templateUrl: 'view/user_management.html',
+        });
+    });*/
+
+</script>
+</body>
+</html>

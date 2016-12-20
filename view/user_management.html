@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user_management</title>
+</head>
+<body>
+<!--Right column-->
+<div class="right_column">
+    <div class="r_title">
+        <p style="white-space: nowrap;margin-left: 60px">User Management</p>
+    </div>
+    <div class="r_add_user">
+
+        <!-- Small modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"
+                style="width: 158px;height: 48px;background-color: white;color:black;border-width: 0px;outline: none">
+            <div class="r_add_user_i">
+                <i class="fa fa-plus" style="font-size: 25px"></i>
+            </div>
+            <div class="r_add_user_text">
+                <p style="white-space: nowrap;">Add User</p>
+            </div>
+        </button>
+
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Add User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>User Name:</label>
+                                <input type="text" class="userName">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user_management">
+        <div class="table_title">User Details</div>
+        <div class="table_frame" ng-controller="userTable">
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <th>User Name</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
+                    <th>Last Updated Date</th>
+                </tr>
+                <tr ng-repeat="x in users">
+                    <td>
+                        <button type="button" class="edit" ng-click="edit(x.id)"
+                                style="width: 70px;height: 38px;float: left;background-color: white;color: blue;border-width: 0px;outline: none">
+                            <p ng-show="myVar" class="edit_save">Edit</p>
+                            <p ng-hide="myVar" class="edit_save">Save</p>
+                        </button>
+                        <!-- Small modal -->
+                        <button ng-show="myVar" ng-click="delete(x.id)" type="button" data-toggle="modal" data-target=".bs-example-modal-w"
+                                style="width: 70px;height: 38px;float: left;background-color: white;color: blue;border-width: 0px;outline: none">
+                            <p class="delete_show" style="margin-left: -5px">Delete</p>
+                        </button>
+                        <button ng-hide="myVar" type="button"
+                                style="width: 70px;height: 38px;float: left;background-color: white;color: blue;border-width: 0px;outline: none">
+                            <p class="delete_show" style="margin-left: -5px">Cancel</p>
+                        </button>
+
+                        <div class="modal fade bs-example-modal-w" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">Are you sure?</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Yes
+                                        </button>
+                                        <button type="button" class="btn btn-primary">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p ng-show="myVar">{{x.name}}</p>
+                        <input ng-hide="myVar" type="text" value="{{x.name}}">
+                    </td>
+                    <td>
+                        <p ng-show="myVar">{{x.name}}</p>
+                        <input ng-hide="myVar" type="text" value="{{x.name}}">
+                    </td>
+                    <td>
+                        <p ng-show="myVar">{{x.data}}</p>
+                        <input ng-hide="myVar" type="date" value="{{x.data}}">
+                    </td>
+                    <td>
+                        <p ng-show="myVar">{{x.data}}</p>
+                        <input ng-hide="myVar" type="date" value="{{x.data}}">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="page">
+            <div class="page_left">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div class="pager_num"><p>1</p></div>
+            <div class="pager_right">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
