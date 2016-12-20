@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#can {
+				/*x轴的偏移量，y轴的偏移量，阴影的宽度 ，阴影的颜色*/
+				box-shadow: 1px 1px 10px blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="can" width="500" height="500"></canvas>
+
+	</body>
+	<script type="text/javascript">
+		var can = document.getElementById("can");
+		var ctx = can.getContext("2d");
+
+		var deg = Math.PI / 180;
+
+		setInterval(function() { //循环定时器,作用是每隔一段时间执行函数一次
+			ctx.clearRect(0, 0, can.width, can.height);
+
+			/*
+			 * 画表盘
+			 */
+			var gradient = ctx.createRadialGradient(250, 250, 50, 240, 240, 240);
+			gradient.addColorStop(0, "#99FF66");
+			gradient.addColorStop(0.4, "#ccff66");
+			gradient.addColorStop(1, "#ffff66");
+			ctx.arc(250, 250, 240, 0, 360 * deg);
+			ctx.fillStyle = gradient;
+			ctx.fill();
+
+			/*
+			 * 画刻度
+			 */
+			ctx.save();
+			ctx.translate(250, 250);
+			for (var i = 0; i < 60; i++) {
+				ctx.save();
+				ctx.rotate(i * 6 * deg);
+				ctx.beginPath();
+				ctx.lineCap = "round"; //设置圆角 
+				if (i % 5 == 0) { //大刻度
+					ctx.moveTo(235, 0); //起点坐标
+					ctx.lineTo(200, 0); //终点坐标
+					ctx.lineWidth = "5"; //线条宽度
+					ctx.strokeStyle = "white"; //线条颜色
+				} else { //小刻度
+					ctx.moveTo(227, 0); //起点坐标
+					ctx.lineTo(210, 0); //终点坐标
+					ctx.lineWidth = "2"; //线条宽度
+					ctx.strokeStyle = "white"; //线条颜色
+				}
+
+				ctx.stroke(); //绘描	
+				ctx.closePath(); //闭合路径
+				ctx.restore(); //还原画布
+			}
+
+			/*
+			 * 画指针
+			 */
+			var now = new Date();
+			var hours = now.getHours();
+			var minutes = now.getMinutes();
+			var seconds = now.getSeconds();
+
+			//时针
+			ctx.save(); //保存圆心状态
+			ctx.rotate(hours * 30 * deg + minutes / 60 * 30 * deg - 90 * deg);
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(90, 0);
+			ctx.lineCap = "round";
+			ctx.lineWidth = "9";
+			ctx.strokeStyle = "white";
+			ctx.stroke();
+			ctx.closePath();
+			ctx.restore();
+			//分针
+			ctx.save(); //保存圆心状态
+			ctx.rotate(minutes * 6 * deg - 90 * deg);
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(110, 0);
+			ctx.lineCap = "round";
+			ctx.lineWidth = "5";
+			ctx.strokeStyle = "white";
+			ctx.stroke();
+			ctx.closePath();
+			ctx.restore();
+			//秒针
+			ctx.save(); //保存圆心状态
+			ctx.rotate(seconds * 6 * deg - 90 * deg);
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(150, 0);
+			ctx.lineCap = "round";
+			ctx.lineWidth = "3";
+			ctx.strokeStyle = "white";
+			ctx.stroke();
+			ctx.closePath();
+			ctx.restore();
+
+			/*
+			 * 画出时针,分针,秒针的交叉点
+			 */
+			ctx.arc(0, 0, 8, 0, 360 * deg, false);
+			ctx.fillStyle = "white";
+			ctx.fill();
+
+			/*
+			 * 写字
+			 */
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			ctx.font = "60px Georgia";
+			ctx.strokeStyle = "white";
+			ctx.strokeText("caojing", 0, 100); //空心字体
+
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var riqi=now.getDate();
+            ctx.font = "40px Arial";
+			ctx.strokeStyle = "white";
+			ctx.strokeText(year+"年", 0, -120); //空心字体
+            ctx.strokeText(month+"月"+riqi+"日", 0, -70);
+             
+			/*
+			 * 画刻度数字
+			 */
+			for (var i = 1; i <= 12; i++) {
+				var x = 180 * Math.sin(i * 30 * deg);
+				var y = -180 * Math.cos(i * 30 * deg);
+				ctx.font = "30px Georgia";
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.strokeStyle = "white";
+				ctx.strokeText(i, x, y); //空心字体
+			}
+
+			ctx.restore();
+
+		}, 1000);
+	</script>
+
+</html>
