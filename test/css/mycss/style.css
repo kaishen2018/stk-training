@@ -303,9 +303,8 @@ p, span {
     float: left;
 }
 
-.user-table tbody tr .span-blue {
-    margin-left: 10px;
-    margin-right: 10px;
+.user-table tr .span-blue {
+
     cursor: pointer;
     color: #5677fc;
 }

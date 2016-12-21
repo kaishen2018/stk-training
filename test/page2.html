@@ -18,22 +18,18 @@
           </div>
           <div class="modal-body">
             <form>
-              <!--<div class="form-group">-->
-              <!---->
-              <!---->
-              <!--</div>-->
               <table class="span6">
                 <tr>
                   <td style="text-align: right"><label for="recipient-name" class="control-label">User Name:</label>
                   </td>
-                  <td><input type="text" class="form-control" id="recipient-name"></td>
+                  <td><input type="text"  id="recipient-name"></td>
                 </tr>
               </table>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
+            <button type="button" class="btn btn-primary">Add</button>
           </div>
         </div>
       </div>
@@ -44,45 +40,81 @@
         <span>User Details</span>
       </div>
       <div id="user-table" class="user-table span12">
+
         <table>
-          <thead>
           <tr>
-            <td>Action</td>
-            <td>User Name</td>
-            <td>Created By</td>
-            <td>Created Date</td>
-            <td>Last Updated Date</td>
+            <th>Action</th>
+            <th>User Name</th>
+            <th>Created By</th>
+            <th>Created Date</th>
+            <th>Last Updated Date</th>
           </tr>
-          </thead>
-          <tbody>
-          <tr ng-repeat="user in users" >
-            <td>
+          <tr ng-repeat="user in users">
+            <td title="'date'" >
+              <span class="span-blue span" ng-if="!user.$edit"
+                 ng-click="user.$edit=true">Edit</span>
+              <span class="span-blue span"  ng-if="user.$edit"
+                 ng-click="user.$edit=false">Save</span>
+              <span class="span-blue span"  ng-if="user.$edit"
+                 ng-click="user.$edit=false">Cancel</span>
 
-              <span ng-click="edit(user)" class="span-blue">Edit</span>
+              <!-- Small modal -->
+              <span class="span-blue span" ng-if="!user.$edit" data-toggle="modal" data-target="#exampleModaltwo">
+                Delete
+              </span>
 
-              <div style="margin-left: 25px;">
 
-                <span ng-click="delete(user)" data-toggle="modal" data-target=".bs-example-modal-sm" class="span-blue">Delete</span>
 
+              <!-- <a href="" ng-click="addStudent()" ng-if="student.$edit" class="btn btn-default btn-xs">Add</a> -->
+            </td>
+            <td title="'name'">
+              <span ng-if="!user.$edit">{{user.name}}</span>
+              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.name}}">
               </div>
             </td>
-            <td><span>{{user.name}}</span><input type="text" placeholder="{{user.name}}"></td>
-            <td><span>{{user.admin}}</span><input type="text" placeholder="{{user.admin}}"></td>
-            <td><span>{{user.date}}</span><input type="text" placeholder="{{user.date}}"></td>
-            <td class="canshow"><span>{{user.lastDate}}</span><input type="text" placeholder="{{user.lastDate}}"/></td>
-
+            <td title="'admin'">
+              <span ng-if="!user.$edit">{{user.name}}</span>
+              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.admin}}"></div>
+            </td>
+            <td title="'date'">
+              <span ng-if="!user.$edit">{{user.date}}</span>
+              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.date}}">
+              </div>
+            </td>
+            <td title="'lastDate'">
+              <span ng-if="!user.$edit">{{user.date}}</span>
+              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.lastDate}}">
+              </div>
+            </td>
           </tr>
-          <tr id="tr-rep">
-            <td class="canhide"><div><span ng-click="svae()" class="span-blue">Save</span></div><div style="margin-left: 25px;"><span class="span-blue">Cancel</span></div></td>
-          </tr>
-          </tbody>
         </table>
+
+
+      </div>
+
+      <div class="modal fade" id="exampleModaltwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                      aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="exampleModalLabeltwo">Add User</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you Delete</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <script>
-      $(function () {
-        $("#user-table").find("input").hide();
-      })
-    </script>
+    <!--<script>-->
+      <!--$(function () {-->
+        <!--$("#user-table").find("input").hide();-->
+      <!--})-->
+    <!--</script>-->
   </div>
 </div>
