@@ -10,21 +10,26 @@
     <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+    <script src="./js/myAngular.js"></script>
+    <script src="./js/myJs.js"></script>
+
 
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="myCtrl">
+<!--<a href="#login"><div class="out"><p>Sign out</p></div></a>-->
 <div class="container-fluid" id="box" style="margin: 0;padding: 0;">
     <div class="row-fluid">
 
+        <div ng-view></div>
 
         <!--The login page:start-->
         <script type="text/ng-template" id="login.html">
-            <div class="span12" ng-view>
+            <div class="span12">
                 <div class="container" style="padding:0;width: 100%">
                     <header>
                         <img src="./images/login.png" alt="">
                     </header>
-                    &lt;!&ndash;Login&ndash;&gt;
                     <article>
                         <div class="title"><b>Configuration Manager</b></div>
                         <div class="both">
@@ -36,7 +41,7 @@
                                     <div class="form">
                                         <input type="text" placeholder="User Name">
                                         <input type="password" placeholder="Password">
-                                        <a href="#" id="login">Login</a>
+                                        <a href="#/dashboard" id="login">Login</a>
                                     </div>
 
                                 </fieldset>
@@ -64,7 +69,7 @@
 
         <!--Dashboard:start-->
         <script type="text/ng-template" id="dashboard.html">
-            <div class="span12" style="z-index: 1;">
+            <div class="span12" style="z-index: 1;" >
                 <div class="container" style="padding:0;width: 100%">
                     <header>
                         <img src="./images/login.png" alt="">
@@ -75,7 +80,7 @@
                                 <div class="caret-down">
                                     <i class="fa fa-caret-down"></i>
                                 </div>
-                                <a onclick="SignOut()">
+                                <a href="#login">
                                     <div class="out">
                                         <p>Sign out</p>
                                     </div>
@@ -87,12 +92,12 @@
                         <div class="left">
                             <div class="btn">
                                 <i class="fa fa-home" id="dsb">
-                                    <a onclick="ChangeColor1()" id="dsb-a"> Dashboard</a>
+                                    <a onclick="ChangeColor1()" id="dsb-a" href="#dashboard"> Dashboard</a>
                                 </i>
                             </div>
                             <div class="btn">
                                 <i class="fa fa-users" id="um">
-                                    <a onclick="ChangeColor2()" id="um-a"> User Management</a>
+                                    <a onclick="ChangeColor2()" id="um-a" href="#user"> User Management</a>
                                 </i>
                             </div>
                         </div>
@@ -132,8 +137,8 @@
         <!--Dashboard:end-->
 
         <!--User Management:start-->
-        <script type="text/ng-template" id="usermanagement.html">
-            <div class="span12" style="z-index: 1;">
+        <script type="text/ng-template" id="user.html">
+            <div class="span12" style="z-index: 1;" >
 
                 <div class="container" style="padding:0;width: 100%">
                     <header>
@@ -147,7 +152,7 @@
                                 <div class="caret-down">
                                     <i class="fa fa-caret-down"></i>
                                 </div>
-                                <a onclick="SignOut()">
+                                <a  href="#login">
                                     <div class="out">
                                         <p>Sign out</p>
                                     </div>
@@ -161,12 +166,12 @@
 
                             <div class="btn">
                                 <i class="fa fa-home" id="dsb1">
-                                    <a onclick="ChangeColor1()" id="dsb1-a"> Dashboard</a>
+                                    <a onclick="ChangeColor1()" id="dsb1-a"  href="#dashboard"> Dashboard</a>
                                 </i>
                             </div>
                             <div class="btn">
                                 <i class="fa fa-users" id="um1">
-                                    <a onclick="ChangeColor2()" id="um1-a"> User Management</a>
+                                    <a onclick="ChangeColor2()" id="um1-a"  href="#user"> User Management</a>
                                 </i>
                             </div>
 
@@ -175,10 +180,59 @@
                             <!--User Management-->
                             <h4>User Management</h4>
                             <button onclick="Add()"><i class="fa fa-plus">&nbsp;&nbsp;Add User</i></button>
+                            <!--<button onclick="Add()"><i class="fa fa-plus">&nbsp;&nbsp;
+                                <a href="" onclick="Add()" ng-if="user.$edit"
+                                   class="btn btn-default btn-xs">Add</a>
+                            </i></button>-->
                             <div class="details">
                                 <div class="text"><p> &nbsp;User Details</p></div>
                                 <div class="table">
-                                    <table>
+                                    <table ng-table="tableParams" class="table table-bordered" style="margin-top: 0;height: 100px;">
+                                        <tr>
+                                            <td>Action</td>
+                                            <td>Username</td>
+                                            <td>Created By</td>
+                                            <td>Created Date</td>
+                                            <td>Last Updated Date</td>
+                                        </tr>
+                                        <tr ng-repeat="user in users|filter:titleFilter" height="30px" style="">
+                                            <!--//遍历每一个对象-->
+                                            <td title="'Action'">
+                                                <a ng-if="!user.$edit" class="btn btn-default btn-xs" ng-click="user.$edit=true">Edit</a>
+                                                <a ng-if="user.$edit" class="btn btn-default btn-xs" ng-click="user.$edit=false">Save</a>
+                                                <a ng-if="user.$edit" class="btn btn-default btn-xs" ng-click="user.$edit=false">Cancel</a>
+                                                <a ng-if="!user.$edit" class="btn btn-default btn-xs" ng-click="deleteUser($index)" data-toggle="windel" data-target="delete">Delete</a>
+                                            </td>
+
+                                            <td title="'User Name'">
+                                                <span ng-if="!user.$edit">{{user.Name}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text" style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.Name" placeholder="{{user.Name}}"></div>
+                                            </td>
+
+                                            <td title="'Create By'">
+                                                <span ng-if="!user.$edit">{{user.CreateName}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text" style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.CreateName" placeholder="{{user.CreateName}}"></div>
+                                            </td>
+
+                                            <td title="'Create Date'">
+                                                <span ng-if="!user.$edit">{{user.Date}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text" style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.Date" placeholder="{{user.Date}}"></div>
+                                            </td>
+
+                                            <td title="'Last Updated Date'">
+                                                <span ng-if="!user.$edit">{{user.Update}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text" style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.Update" placeholder="{{user.Update}}"></div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+
+
+                                    <!--<table>
                                         <tr id="line1">
                                             <td>Action</td>
                                             <td>User Name</td>
@@ -225,7 +279,7 @@
                                             <td style="border-right: hidden">2016-12-13</td>
                                         </tr>
 
-                                    </table>
+                                    </table>-->
                                 </div>
                                 <div class="paging">
                                     <div class="chevron_right"><i class="fa fa-chevron-right"></i></div>
@@ -255,10 +309,10 @@
                 </div>
 
                 <!--Delete windows-->
-                <div class="windel" id="alert2">
+                <div class="windel fade delete" id="alert2" role="dialog" aria-labelledby="mySmallModalLabel">
                     <h3>Are you sure?</h3>
-                    <button id="yes" onclick="Delete()">YES</button>
-                    <button id="no" onclick="Delete()">NO</button>
+                    <button id="yes" onclick="Delete()" data-dismiss="windel">YES</button>
+                    <button id="no" onclick="Delete()"  data-dismiss="windel">NO</button>
                 </div>
 
             </div>
@@ -270,14 +324,17 @@
 </div>
 
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     /*Use anjularjs to achieve the handover between the pages*/
     var app = angular.module('myApp', ['ngRoute']);
     app.config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when("/aaa", {
+        $routeProvider.when("/login", {
             templateUrl: "login.html",
-            controller: "register"
-        })
+        }).when("/dashboard",{
+            templateUrl:"dashboard.html",
+        }).when("/user",{
+            templateUrl:"user.html",
+        }).otherwise({redirectTo:"/login"});
 
     }]);
 
@@ -340,7 +397,8 @@
 
     /*To delete the data in table*/
     var alert2 = document.getElementById("alert2");
-    alert2.style.display = "none";
+     alert2.style.display = "none";
+
     function Delete() {
         if (alert2.style.display == "none")
             alert2.style.display = "block";
@@ -367,7 +425,7 @@
         um.style.color = "white";
         uma.style.color = "white";
     }
-</script>
+</script>-->
 
 </body>
 </html>

@@ -243,9 +243,10 @@ article .both h6 {
 article .left {
     width: 200px;
     height:698px;
-    float: left;
-    /*left:0;*/
-    /*top:70px;*/
+    /*float: left;*/
+    position: absolute;
+    left:0;
+    top:70px;
     background-color: #333333;
 }
 
@@ -285,7 +286,8 @@ article .left {
 }
 
 .right {
-    float: left;
+    /*float: left;*/
+    position: absolute;
     height: 100%;
     left: 250px;
     top: 70px;
@@ -564,7 +566,7 @@ table tr td #show2{
     top:0;
     background-color:#000;
     width:100%;
-    height:100%;
+    height:768px;
     filter:alpha(opacity=50);
     opacity:0.5;
     display:none;
@@ -644,7 +646,6 @@ table tr td #show2{
 .signout .out{
     font-size: 1.3em;
 }
-
 
 
 
