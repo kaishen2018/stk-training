@@ -4,14 +4,13 @@
 
 var app = angular.module('myApp', ['ui.router']);
 app.config(function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
-
+  $urlRouterProvider.otherwise('/index');
   $stateProvider
-      .state('home', {
-        url: "/home",
+      .state('index', {
+        url: "/index",
         templateUrl: "./home.html",
         controller:function ($scope) {
-          console.log("enter home");
+          console.log("enter index");
         }
         // controller: "HomeController",
         // controllerAs: "ctrHome"
@@ -83,50 +82,20 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
     {name: "Lemon Yang", admin: "Beck", date: "2016-12-13", lastDate: "2016-12-19"},
     {name: "Lemon Yang", admin: "Beck", date: "2016-12-13", lastDate: "2016-12-19"}
   ];
-  // $scope.isshow = false;
-  // $scope.loginIn = function () {
-  //   $scope.isshow = true;
-  // };
+  $scope.isshow = false;
+  $scope.loginIn = function () {
+    $scope.isshow = true;
+  };
 
-
-  // $scope.edit = function (id) {
-  //   var eid = $scope.users.indexOf(id);
-  //
-  //   var sta = $("#user-table").find("tbody").find("tr").eq(eid).find("td");
-  //
-  //   if (sta.eq(0).find("span").eq(0).text() == "Edit"){
-  //     sta.eq(0).find("span").eq(0).text("Save");
-  //     sta.eq(0).find("span").eq(1).text("Cancel");
-  //     sta.nextAll().find("span").hide();
-  //     sta.nextAll().find("input").show();
-  //     console.log(sta.eq(0).find("span").eq(1).text());
-  //   }else if(sta.eq(0).find("span").eq(0).text() == "Save"){
-  //     sta.eq(0).find("span").eq(0).text("Edit");
-  //     sta.eq(0).find("span").eq(1).text("Delete");
-  //     sta.nextAll().find("span").show();
-  //     sta.nextAll().find("input").hide();
-  //   }
-  // };
-  //
-  // $scope.delete = function (id) {
-  //   var did = $scope.users.indexOf(id);
-  //   var sta = $("#user-table").find("tbody").find("tr").eq(did).find("td");
-  //
-  //   if(sta.eq(0).find("span").eq(1).text() == "Cancel"){
-  //     sta.eq(0).find("span").eq(0).text("Edit");
-  //     sta.eq(0).find("span").eq(1).text("Delete");
-  //     sta.nextAll().find("span").show();
-  //     sta.nextAll().find("input").hide();
-  //   }
-  //   if(sta.eq(0).find("span").eq(1).text() == "Delete"){
-  //
-  //
-  //     sta.eq(0).find("span").eq(0).text("Edit");
-  //     sta.eq(0).find("span").eq(1).text("Delete");
-  //     sta.nextAll().find("span").show();
-  //     sta.nextAll().find("input").hide();
-  //   }
-  // }
+  $scope.formData= {};
+  $http.get('/api/todos')
+      .success(function (data) {
+        $scope.users = data;
+        console.log(data);
+      })
+      .error(function (err) {
+        console.log('Error: ',err);
+      })
 
 
 

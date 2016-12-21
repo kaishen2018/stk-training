@@ -14,6 +14,24 @@
   "author": "Beck",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.1",
+    "morgan": "^1.7.0",
+    "winston": "^2.2.0",
+    "winston-syslog": "^1.2.1"
+  },
+  "devDependencies": {
+    "supertest": "^2.0.0",
+    "eslint": "^3.6.1",
+    "eslint-config-standard": "^6.1.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "faucet": "0.0.1",
+    "istanbul": "^0.4.5",
+    "tape": "^4.6.0",
+    "tape-catch": "^1.0.6",
+    "nodemon": "^1.11.0"
   }
 }
