@@ -1,0 +1,410 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #d9edf7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+}
+
+.col-md-12 {
+    padding: 0;
+    margin: 0;
+}
+
+.col-md-2 {
+    padding: 0;
+    margin: 0;
+}
+
+.col-md-10 {
+    padding: 0;
+    margin: 0;
+}
+
+/**
+Top
+ */
+.top {
+    width: 100%;
+    height: 75px;
+    left: 0px;
+    top: 0px;
+    background-color: #005e89;;
+    margin: 0 auto;
+}
+
+.top_login {
+    width: 100%;
+    height: 75px;
+    left: 0px;
+    top: 0px;
+    background-color: #005e89;
+    border-color: #005e89;
+    border-style: solid;
+    text-align: center;
+}
+
+.l_logo {
+    left: 0px;
+    top: 0px;
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    margin-top: 22px;
+    float: left;
+}
+
+.r_logo {
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 45px;
+    color: #fffff9;
+    margin-top: 22px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 28px;
+    float: left;
+}
+
+.dropdown {
+    width: 180px;
+    height: 45px;
+    float: right;
+}
+
+#dLabel {
+    float: right;
+    background-color: #005e89;;
+    border-width: 0px;
+    outline: none;
+}
+
+.dropdown ul {
+    background-color: #00c0ef;
+    color: white;
+}
+
+.dropdown ul button {
+    width: 100%;
+    height: 35px;
+    font-size: 18px;
+    background-color: #00c0ef;
+    border-width: 0px;
+    outline: none;
+}
+
+.user_down_i {
+    width: 35px;
+    height: 35px;
+    float: right;
+    margin-top: 25px
+}
+
+.user_down {
+    width: 45px;
+    height: 45px;
+    float: right;
+    color: #fffff9;
+    margin-top: 22px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 28px;
+}
+
+/**
+Left column
+ */
+.left_column {
+    width: 280px;
+    height: 600px;
+    background-color: #333333;
+    float: left;
+}
+
+.parent_menu {
+    width: 100%;
+    height: 50px;
+}
+
+.sub_menu {
+    width: 100%;
+    height: 100%;
+    border: solid;
+    border-width: 1px;
+    border-radius: 0px;
+    border-color: #444444;;
+    margin: 0 auto;
+}
+
+.sub_menu:hover {
+    background-color: #1b6d85;
+}
+
+.sub_menu_i {
+    width: 20px;
+    height: 45px;
+    float: left;
+    line-height: 60px;
+    margin-left: 30px;
+}
+
+.sub_menu_text {
+    width: 120px;
+    height: 45px;
+    margin-left: 20px;
+    float: left;
+    color: #fffff9;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 55px;
+}
+
+/**
+Right column
+ */
+.right_column {
+    width: 100%;
+    float: left;
+}
+
+.r_title {
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+.r_title p {
+    width: 120px;
+    height: 45px;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 55px;
+}
+
+.r_list {
+    width: 100%;
+    height: 150px;
+    margin-left: 20px;
+}
+
+.r_lists {
+    width: 220px;
+    height: 120px;
+    float: left;
+    margin-left: 80px;
+}
+
+.r_lists_bottom {
+    width: 220px;
+    height: 30px;
+    margin-top: 18px;
+    background-color: white;
+    opacity: 0.2;
+}
+
+.r_lists_num {
+    width: 100px;
+    height: 47px;
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 35px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.r_lists_title {
+    width: 100px;
+    height: 20px;
+    color: white;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.chart_top {
+    width: 820px;
+    height: 10px;
+    margin-left: 100px;
+    background-color: #dddddd;
+}
+
+.chart_title {
+    width: 820px;
+    height: 40px;
+    margin-left: 100px;
+    background-color: white;
+    border-color: #dddddd;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 40px;
+    font-size: 15.0px;
+}
+
+.chart_img {
+    width: 815px;
+    height: 330px;
+    margin-left: 100px;
+    background-color: white;
+}
+
+.chart_img img {
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+}
+
+.r_add_user {
+    width: 160px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    margin-left: 110px;
+    border-color: #1b6d85;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.r_add_user_i {
+    width: 25px;
+    height: 45px;
+    float: left;
+    line-height: 50px;
+}
+
+.r_add_user_text {
+    width: 60px;
+    height: 45px;
+    float: left;
+    line-height: 40px;
+}
+
+.r_add_user_text p {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+.user_management {
+    width: 800px;
+    height: 470px;
+    margin-top: 20px;
+    margin-left: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    text-align: center;
+    background-color: white;
+}
+
+.table_title {
+    height: 45px;
+    font-size: 25.0px;
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+}
+
+.table_frame {
+    width: 760px;
+    height: 350px;
+    margin: 10px auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+}
+
+table {
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+}
+
+th {
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    text-align: center;
+}
+
+tr {
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+}
+
+td {
+    width: 20%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+}
+
+td input {
+    width: 120px;
+    height: 20px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.edit_save {
+    width: 20px;
+    color: blue;
+    float: left;
+    margin-left: 20px;
+}
+
+.delete_show {
+    width: 20px;
+    color: blue;
+    float: left;
+    margin-left: 40px;
+}
+
+.page {
+    width: 110px;
+    height: 30px;
+    float: right;
+}
+
+.page_left {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+.pager_num {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+.pager_right {
+    width: 30px;
+    height: 30px;
+    float: left;
+}
