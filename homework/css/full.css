@@ -1,0 +1,319 @@
+.text-configuration{
+    font-size: 20px ;
+    position: absolute;
+    font-weight:bold;
+}
+.text-opacity{
+    font-size: 15px;
+    position: absolute;
+}
+.border-radius {
+    padding-left: 10px;
+    width:240px;
+    height:40px;
+    left:250px;
+    top:270px;
+    font-size:14.0px;
+    border-radius:8px;
+    border-width:1px;
+    border-style:solid;
+    text-align:left;
+    font-weight:normal;
+    font-style:normal;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto
+}
+.button-L{
+    width:110px;
+    height:40px;
+    margin-left:7%;
+    margin-top: 3%;
+    color:#0f3552;
+    background-color:#ffffff;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:14.0px;
+    border-radius:8px;
+    border-width:1px;
+    border-style:solid;
+    text-align:center;
+    font-weight:normal;
+    font-style:normal;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+}
+.button-P{
+    width:180px;
+    height: 565px;
+    background-color:#333333;
+    border-color:#444444;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:14.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:1px;
+    border-style:solid;
+    text-align:center;
+    line-height:20px;
+    font-weight:normal;
+    font-style:normal;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+}
+.button-O{
+    width:179px;
+    height:50px;
+    left:0px;
+    top:70px;
+    background-color:#333333;
+    border-color:#444444;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:14.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:1px;
+    border-style:solid;
+    text-align:center;
+    line-height:20px;
+    font-weight:normal;
+    font-style:normal;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+}
+.button-K{
+    width:45px;
+    height:45px;
+    color:#fffff9;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    font-weight:normal;
+    font-style:normal;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+}
+.button-M{
+    width:120px;
+    height:35px;
+    color:#fffff9;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:16.0px;
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    line-height:23px;
+    font-weight:normal;
+    font-style:normal;
+    justify-content: flex-start;
+    align-items: center;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+}
+.button-J{
+    width:34px;
+    height:35px;
+    color:#fff;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    font-weight:normal;
+    font-style:normal;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+}
+.button-H{
+    width:53px;
+    height:45px;
+    color:#ffffff;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:16.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    line-height:23px;
+    font-weight:normal;
+    font-style:normal;
+    justify-content: center;
+    align-items: center;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+
+}
+.rounded-b{
+    width: 220px;
+    height: 120px;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-left: 380px;
+    position: absolute;
+    background-color:#00c0ef;
+    border-color: #BBBBBB;
+}
+.text-L{
+    width:100px;
+    height:57px;
+    color:#ffffff;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:35.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    line-height:51px;
+    font-weight:bold;
+    font-style:normal;
+    justify-content: center;
+    align-items: center;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+    margin-left: 20px;
+}
+.text-K{
+    width:130px;
+    height:25px;
+    color:#ffffff;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:16.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    line-height:23px;
+    font-weight:normal;
+    font-style:normal;
+    justify-content: flex-start;
+    align-items: center;
+    z-index:5;
+    opacity:1;
+    pointer-events:auto;
+    margin-left: 20px;
+}
+.button-N{
+    width: 130px;
+    height: 45px;
+    border: 1px solid #bbbbbb;
+    margin-left: 210px;
+    margin-top: 25px;
+    background-color: #FFFFFF;
+}
+.button-B{
+    width: 45px;
+    height: 45px;
+    color: rgb(0, 94, 137);
+    transform: rotate(0deg);
+    border-radius: 0px;
+    border-width: 0px;
+    border-style: solid;
+    font-weight: normal;
+    font-style: normal;
+    z-index: 6; opacity: 1;
+    pointer-events: auto;
+    transition-duration: 0.4s;
+}
+.button-G{
+    width:80px;
+    height:45px;
+    color:#005e89;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:19.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    line-height:23px;
+    font-weight:normal;
+    font-style:normal;
+    justify-content: flex-start;
+    align-items: center;
+    z-index:6;
+    opacity:1;
+    pointer-events:auto;
+    margin-left: 40px;
+}
+.form-A{
+    width: 1000px;
+    height: 453px;
+    border: 1px solid #BBBBBB;
+    margin-left: 210px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+.form-B{
+    width: 1000px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #BBBBBB;
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 0px;
+}
+.form-C{
+    width: 960px;
+    height: 370px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid #BBBBBB;
+}
+.page{
+    width:45px;
+    height:30px;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    font-weight:normal;
+    font-style:normal;
+    z-index:6;
+    opacity:1;
+    pointer-events:auto;
+}
+.text-N{
+    width:20px;
+    height:30px;
+    color:#7abbe0;
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    font-size:14.0px;
+    padding:0px;
+    border-radius:0px;
+    border-width:0px;
+    border-style:solid;
+    line-height:20px;
+    font-weight:normal;
+    font-style:normal;
+    justify-content: center;
+    align-items: center;
+    z-index:6;
+    opacity:1;
+    pointer-events:auto;
+}
+.text-H{
+    font-size: 17px;
+    text-align: center;
+}
+.text-B{
+    font-size: 20px;
+    text-align: center;
+}
