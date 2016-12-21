@@ -91,7 +91,6 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
 
   $scope.edit = function (id) {
     var eid = $scope.users.indexOf(id);
-    console.log("click edit button"+eid);
 
     var sta = $("#user-table").find("tbody").find("tr").eq(eid).find("td");
 
@@ -106,14 +105,30 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
       sta.eq(0).find("span").eq(1).text("Delete");
       sta.nextAll().find("span").show();
       sta.nextAll().find("input").hide();
-    }else if(sta.eq(0).find("span").eq(1).text() == "Cancel"){
+    }
+  };
+
+  $scope.delete = function (id) {
+    var did = $scope.users.indexOf(id);
+    var sta = $("#user-table").find("tbody").find("tr").eq(did).find("td");
+
+    if(sta.eq(0).find("span").eq(1).text() == "Cancel"){
       sta.eq(0).find("span").eq(0).text("Edit");
       sta.eq(0).find("span").eq(1).text("Delete");
       sta.nextAll().find("span").show();
       sta.nextAll().find("input").hide();
     }
+    if(sta.eq(0).find("span").eq(1).text() == "Delete"){
 
-  };
+
+      sta.eq(0).find("span").eq(0).text("Edit");
+      sta.eq(0).find("span").eq(1).text("Delete");
+      sta.nextAll().find("span").show();
+      sta.nextAll().find("input").hide();
+    }
+  }
+
+
 
 });
 

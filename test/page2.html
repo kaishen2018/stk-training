@@ -61,14 +61,15 @@
               <span ng-click="edit(user)" class="span-blue">Edit</span>
 
               <div style="margin-left: 25px;">
-                <span ng-click="edit(user)" class="span-blue">Delete</span>
+
+                <span ng-click="delete(user)" data-toggle="modal" data-target=".bs-example-modal-sm" class="span-blue">Delete</span>
+
               </div>
             </td>
             <td><span>{{user.name}}</span><input type="text" placeholder="{{user.name}}"></td>
             <td><span>{{user.admin}}</span><input type="text" placeholder="{{user.admin}}"></td>
             <td><span>{{user.date}}</span><input type="text" placeholder="{{user.date}}"></td>
             <td class="canshow"><span>{{user.lastDate}}</span><input type="text" placeholder="{{user.lastDate}}"/></td>
-
 
           </tr>
           <tr id="tr-rep">
