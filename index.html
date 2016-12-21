@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./css/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css" media="screen">
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+    <script src="./js/myAngular.js"></script>
+    <script src="./js/myJs.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+<!--<a href="#login"><div class="out"><p>Sign out</p></div></a>-->
+<div class="container-fluid" id="box" style="margin: 0;padding: 0;">
+    <div class="row-fluid">
+
+        <div ng-view></div>
+
+        <!--The login page:start-->
+        <script type="text/ng-template" id="login.html">
+            <div class="span12">
+                <div class="container" style="padding:0;width: 100%">
+                    <header>
+                        <img src="./images/login.png" alt="">
+                    </header>
+                    <article>
+                        <div class="title"><b>Configuration Manager</b></div>
+                        <div class="both">
+                            <div class="login">
+                                <fieldset>
+                                    <h5><b>Login</b></h5>
+                                    <h6>Access your account</h6>
+
+                                    <div class="form">
+                                        <input type="text" placeholder="User Name">
+                                        <input type="password" placeholder="Password">
+                                        <a href="#/dashboard" id="login">Login</a>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="register">
+                                <fieldset>
+                                    <h5><b>Sign Up</b></h5>
+                                    <h6>Create a new account</h6>
+
+                                    <div class="form">
+                                        <input type="text" placeholder="User Name">
+                                        <input type="password" placeholder="Password">
+                                        <input type="password" placeholder="Confirm password">
+                                        <a href="#" id="register">Register</a>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </script>
+        <!--The login page:end-->
+
+        <!--Dashboard:start-->
+        <script type="text/ng-template" id="dashboard.html">
+            <div class="span12" style="z-index: 1;" >
+                <div class="container" style="padding:0;width: 100%">
+                    <header>
+                        <img src="./images/login.png" alt="">
+                        <div class="user">
+                            <h4>UserA</h4>
+                            <i class="fa fa-sort-desc" style="margin:5px;" onclick="showOut()"></i>
+                            <div class="signout" id="out">
+                                <div class="caret-down">
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                                <a href="#login">
+                                    <div class="out">
+                                        <p>Sign out</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <article>
+                        <div class="left">
+                            <div class="btn">
+                                <i class="fa fa-home" id="dsb">
+                                    <a onclick="ChangeColor1()" id="dsb-a" href="#dashboard"> Dashboard</a>
+                                </i>
+                            </div>
+                            <div class="btn">
+                                <i class="fa fa-users" id="um">
+                                    <a onclick="ChangeColor2()" id="um-a" href="#user"> User Management</a>
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <!--Dashboard-->
+                            <h4>Dashboard</h4>
+                            <div class="body">
+                                <div class="total">
+                                    <div class="number" id="num1">
+                                        <h1><b>156</b></h1>
+                                        <p>Total users</p>
+                                        <div id="color1"></div>
+                                    </div>
+                                    <div class="number" id="num2">
+                                        <h1><b>56</b></h1>
+                                        <p>New users</p>
+                                        <div id="color2"></div>
+                                    </div>
+                                    <div class="number" id="num3">
+                                        <h1><b>100</b></h1>
+                                        <p>Users pending</p>
+                                        <div id="color3"></div>
+                                    </div>
+                                </div>
+                                <div class="report">
+                                    <h6>用户增长季度报告</h6>
+                                    <div class="img"></div>
+                                </div>
+                            </div>
+                            <!--Dashboard:end-->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </script>
+        <!--Dashboard:end-->
+
+        <!--User Management:start-->
+        <script type="text/ng-template" id="user.html">
+            <div class="span12" style="z-index: 1;" >
+
+                <div class="container" style="padding:0;width: 100%">
+                    <header>
+                        <img src="./images/login.png" alt="">
+                        <div class="user">
+                            <h4>UserA</h4>
+                            <i class="fa fa-sort-desc" style="margin:5px;" onclick="showOut()"></i>
+
+
+                            <div class="signout" id="out1">
+                                <div class="caret-down">
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                                <a  href="#login">
+                                    <div class="out">
+                                        <p>Sign out</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+
+                    <article>
+                        <div class="left">
+
+                            <div class="btn">
+                                <i class="fa fa-home" id="dsb1">
+                                    <a onclick="ChangeColor1()" id="dsb1-a"  href="#dashboard"> Dashboard</a>
+                                </i>
+                            </div>
+                            <div class="btn">
+                                <i class="fa fa-users" id="um1">
+                                    <a onclick="ChangeColor2()" id="um1-a"  href="#user"> User Management</a>
+                                </i>
+                            </div>
+
+                        </div>
+                        <div class="right">
+                            <!--User Management-->
+                            <h4>User Management</h4>
+                            <button onclick="Add()"><i class="fa fa-plus">&nbsp;&nbsp;Add User</i></button>
+                            <div class="details">
+                                <div class="text"><p> &nbsp;User Details</p></div>
+                                <div class="table">
+                                    <table>
+                                        <tr id="line1">
+                                            <td>Action</td>
+                                            <td>User Name</td>
+                                            <td>Create By</td>
+                                            <td>Created Date</td>
+                                            <td style="border-right: hidden;">Last Updated Date</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div id="show1">
+                                                    <a onclick="Edit()" id="edit">Edit</a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a onclick="Delete()" id="del">Delete</a>
+                                                </div>
+                                                <div id="show2">
+                                                    <a onclick="Cancel()" id="save">Save</a>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a onclick="Cancel()" id="cancel">Cancel</a>
+                                                </div>
+                                            </td>
+                                            <td id="username"><input type="text" readonly="true" value="Banana Cao"/>
+                                            </td>
+                                            <td id="created"><input type="text" readonly="true" value="Banana Cao"/>
+                                            </td>
+                                            <td id="date"><input type="text" readonly="true" value="2016-12-13"></td>
+                                            <td style="border-right: hidden" id="update"><input type="text"
+                                                                                                readonly="true"
+                                                                                                value="2016-12-13"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a onclick="Edit()">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                                    onclick="Delete()">Delete</a></td>
+                                            <td>Banana Cao</td>
+                                            <td>Banana Cao</td>
+                                            <td>2016-12-13</td>
+                                            <td style="border-right: hidden">2016-12-13</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a onclick="Edit()">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                                    onclick="Delete()">Delete</a></td>
+                                            <td>Banana Cao</td>
+                                            <td>Banana Cao</td>
+                                            <td>2016-12-13</td>
+                                            <td style="border-right: hidden">2016-12-13</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                                <div class="paging">
+                                    <div class="chevron_right"><i class="fa fa-chevron-right"></i></div>
+                                    <div class="page_code"><p>1</p></div>
+                                    <div class="chevron_left"><i class="fa fa-chevron-left"></i></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </article>
+                </div>
+                <!--Add User windows-->
+                <div class="winadd" id="alert1">
+                    <div class="up"><p>Add User</p><b><a onclick="closeAdd()">x</a></b></div>
+                    <div class="middle" style="margin: 15px 10px;">
+                        <label for="name">User Name: </label>
+                        <input type="text" id="name" placeholder="User Name">
+                    </div>
+                    <div class="clear"></div>
+                    <div class="bottom">
+                        <button onclick="closeAdd()">Add</button>
+                    </div>
+                </div>
+                <!-- The hide layer-->
+                <div id="hide">
+                </div>
+
+                <!--Delete windows-->
+                <div class="windel" id="alert2">
+                    <h3>Are you sure?</h3>
+                    <button id="yes" onclick="Delete()">YES</button>
+                    <button id="no" onclick="Delete()">NO</button>
+                </div>
+
+            </div>
+
+        </script>
+        <!--User Management:end-->
+
+    </div>
+</div>
+
+
+<!--<script type="text/javascript">
+    /*Use anjularjs to achieve the handover between the pages*/
+    var app = angular.module('myApp', ['ngRoute']);
+    app.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when("/login", {
+            templateUrl: "login.html",
+        }).when("/dashboard",{
+            templateUrl:"dashboard.html",
+        }).when("/user",{
+            templateUrl:"user.html",
+        }).otherwise({redirectTo:"/login"});
+
+    }]);
+
+
+    /*To get the height of the current form and assign it to a div*/
+    function assignHeight() {
+        $("#box").height($(window).height());
+    }
+
+
+    /*To show and hide the sign out logo*/
+    var flag = true;
+    function showOut() {
+        if (flag) {
+            $("#out,#out1").fadeIn("slow");
+            flag = false;
+        }
+        else {
+            $("#out,#out1").fadeOut("slow");
+            flag = true;
+        }
+    }
+
+    /*To display the Add window and make the rest of the page can not be edited*/
+    var hide = document.getElementById("hide");
+    var alert1 = document.getElementById("alert1");
+    function Add() {
+        hide.style.display = "block";
+        alert1.style.display = "block";
+    }
+    function closeAdd() {
+        hide.style.display = "none";
+        alert1.style.display = "none";
+    }
+
+    /*To Edit the data in table*/
+    var show1 = document.getElementById("show1");
+    var show2 = document.getElementById("show2");
+    function Edit() {
+        show1.style.display = "none";
+        show2.style.display = "block";
+        $("td input").removeAttr("readonly");
+        $("td input").css({
+            "border": "1px solid #bbbbbb",
+            "color": "#bbbbbb"
+
+        });
+    }
+
+    /*To cancel edit the data in table*/
+    function Cancel() {
+        show2.style.display = "none";
+        show1.style.display = "block";
+        $("td input").attr("readonly", "readonly");
+        $("td input").css({
+            "border": "none",
+            "color": "#000"
+        });
+    }
+
+    /*To delete the data in table*/
+    var alert2 = document.getElementById("alert2");
+     alert2.style.display = "none";
+
+    function Delete() {
+        if (alert2.style.display == "none")
+            alert2.style.display = "block";
+        else
+            alert2.style.display = "none";
+    }
+
+
+    /*Use to change color of the left navigation bar*/
+    var dsb = document.getElementById("dsb,dsb1");
+    var dsba = document.getElementById("dsb-a,dsb1-a");
+    var um = document.getElementById("um,um1");
+    var uma = document.getElementById("um-a,um1-a");
+    function ChangeColor1() {
+        dsb.style.color = "white";
+        dsba.style.color = "white";
+        um.style.color = "#b8c7ce";
+        uma.style.color = "#b8c7ce";
+
+    }
+    function ChangeColor2() {
+        dsb.style.color = "#b8c7ce";
+        dsba.style.color = "#b8c7ce";
+        um.style.color = "white";
+        uma.style.color = "white";
+    }
+</script>-->
+
+</body>
+</html>
