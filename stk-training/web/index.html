@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="./CSS/font-awesome.css"/>
+    <link type="text/css" rel="stylesheet" href="./CSS/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="./CSS/index.css"/>
+    <script type="text/javascript" src="./JS/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="./JS/bootstrap.js"></script>
+    <script type="text/javascript" src="./JS/angular.js"></script>
+    <script type="text/javascript" src="./JS/index.js"></script>
+</head>
+<body>
+<div id="ini" ng-app="iniApp" ng-controller="iniCtrl">
+    <img id="img_ini" src="./Image/logo-lg.svg">
+    <canvas id="progress_ini"></canvas>
+    <p id="text_ini"> loading Administrator...</p>
+</div>
+<div id="turn" ng-app="turnApp" ng-controller="turnCtrl">
+    <img src="./Image/turn.png">
+</div>
+<!--Login-->
+<div id="login" ng-app="loginApp" ng-controller="loginCtrl" ng-click="hint()">
+    <div class="header">
+        <img class="img_header" src="./Image/logo.png">
+        <p class="title_header">Configuration Manager</p>
+    </div>
+    <div id="title_login">
+        <p>
+        <h3><b>Configuration Manager</b></h3>
+        </p>
+    </div>
+    <table>
+        <tr>
+            <td class="rightBorder"><h4><b>Login</b></h4></td>
+            <td><h4><b>Sign up</b></h4></td>
+        </tr>
+        <tr>
+            <td class="rightBorder hint">Access your account</td>
+            <td class="hint">Create &nbsp;a new account</td>
+        </tr>
+        <tr>
+            <td class="rightBorder"><input class="form-control" type="text" placeholder="User Name"/></td>
+            <td><input class="form-control" type="text" placeholder="User Name"/></td>
+        </tr>
+        <tr>
+            <td class="rightBorder"><input class="form-control" type="password" placeholder="Password"/></td>
+            <td><input class="form-control" type="password" placeholder="Password"/></td>
+        </tr>
+        <tr>
+            <td class="rightBorder"><input id="login_login" class="form-control sbutton" type="button"
+                                           value="Login" ng-click="go()"/></td>
+            <td><input class="form-control" type="password" placeholder="Cinfirm password"/></td>
+        </tr>
+        <tr>
+            <td class="rightBorder"></td>
+            <td><input id="register_login" class="form-control" type="button" value="Register"/></td>
+        </tr>
+    </table>
+</div>
+<!--Dashboard-->
+<div id="main" ng-app="mainApp" ng-controller="mainCtrl">
+    <div id="header_main" class="header">
+        <img class="img_header" src="./Image/logo.png">
+        <p class="title_header">Configuration Manager</p>
+        <div id="username_main">
+            UserA
+            <img src="./Image/more.png" ng-click="showOut()">
+            <p ng-click="out()">Sign out</p>
+        </div>
+    </div>
+    <!--
+    <div id="menu_main">
+        <div id="shar_menu_main" ng-mouseover="min(SHAR)" ng-mouseleave="mout(SHAR)">
+        <span class="icon-bar"></span>
+        </div>
+        <div id="menu_menu_main" ng-mouseover="min(MENU)" ng-mouseleave="mout(MENU)" ng-click="toggleMenu()">
+        <img src="./Image/menu.png">
+        </div>
+        <div id="font_menu_main" ng-mouseover="min(FONT)" ng-mouseleave="mout(FONT)">
+        <img src="./Image/font.png">
+        </div>
+        <div id="back_menu_main" ng-mouseover="min(BACK)" ng-mouseleave="mout(BACK)">
+        <img src="./Image/back.png">
+        </div>
+        <div id="zoomIn_menu_main" ng-mouseover="min(ZOOM_IN)" ng-mouseleave="mout(ZOOM_IN)">
+        <img src="./Image/zoom_in.png">
+        </div>
+        <div id="zoomOut_menu_main" ng-mouseover="min(ZOOM_OUT)" ng-mouseleave="mout(ZOOM_OUT)">
+        <img src="./Image/zoom_out.png">
+        </div>
+        <div id="share_menu_main" class="fa fa-share-alt" aria-hidden="true"></div>
+        <div id="bars_menu_main" class="fa fa-bars" aria-hidden="true"></div>
+        <div id="font_menu_main" class="fa fa-font" aria-hidden="true"></div>
+        <div id="reply_menu_main" class="fa fa-reply" aria-hidden="true"></div>
+        <div id="zoomIn_menu_main" class="fa fa-search-plus" aria-hidden="true"></div>
+        <div id="zoomOut_menu_main" class="fa fa-search-minus" aria-hidden="true"></div>
+    </div>
+    -->
+    <!--
+    <div id="select_menu">
+        <div>
+            <span>Screen Panel</span>
+            <img src="./Image/close.png" ng-click="toggleMenu()">
+        </div>
+        <table class="table-hover">
+            <tr>
+                <td>主页</td>
+            </tr>
+            <tr>
+                <td>Dashboard</td>
+            </tr>
+            <tr>
+                <td>User Management</td>
+            </tr>
+        </table>
+    </div>
+    -->
+    <div id="item_main">
+        <table>
+            <tr>
+                <td id="home_item_main" ng-click="showHome()">
+                    <p class="fa fa-home" aria-hidden="true"></p>
+                    <span>Dashboard</span>
+                </td>
+            </tr>
+            <tr>
+                <td id="user_item_main" ng-click="showUser()">
+                    <p class="fa fa-users" aria-hidden="true"></p>
+                    <span>User Management</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="content_main">
+        <span>Dashboard</span>
+        <table>
+            <tr>
+                <td>
+                    <div id="total">
+                        <h2>156</h2>
+                        <p>Total users</p>
+                    </div>
+                    <div id="total_footer"></div>
+                </td>
+                <td>
+                    <div id="new">
+                        <h2>56</h2>
+                        <p>New users</p>
+                    </div>
+                    <div id="new_footer"></div>
+                </td>
+                <td>
+                    <div id="users">
+                        <h2>100</h2>
+                        <p>Users pending</p>
+                    </div>
+                    <div id="users_footer"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="img_content_main" colspan="3">
+                    <p>用户增长季度报告</p>
+                    <img src="./Image/raw_1481601315.png">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--User Management-->
+    <div id="content_users">
+        <span id="title_content_users">User Mannagement</span>
+        <div id="add_content_users">
+            <a ng-click="showAddUser()">
+                <span class="fa fa-plus" aria-hidden="true"></span>
+                <span>Add User</span>
+            </a>
+        </div>
+        <div id="content_content_users">
+            <span>User Details</span>
+            <div>
+                <table class="table">
+                    <tr>
+                        <td>Action</td>
+                        <td>User Name</td>
+                        <td>Created By</td>
+                        <td>Created Date</td>
+                        <td>Last Updates Date</td>
+                    </tr>
+                    <tr ng-repeat="x in Users">
+                        <td>
+                            <a ng-click="toggleEdit(x)">Edit</a>
+                            <a ng-click="toggleEdit(x)">Delete</a>
+                        </td>
+                        <td>
+                            <p ng-bind="x.UN"></p>
+                            <input class="form-control" type="text" placeholder="{{x.UN}}"/>
+                        </td>
+                        <td>
+                            <p ng-bind="x.UN"></p>
+                            <input class="form-control" type="text" placeholder="{{x.UN}}"/>
+                        </td>
+                        <td>
+                            <p ng-bind="x.CD"></p>
+                            <input class="form-control" type="text" placeholder="{{x.CD}}"/>
+                        </td>
+                        <td>
+                            <p ng-bind="x.CD"></p>
+                            <input class="form-control" type="text" placeholder="{{x.CD}}"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="addUserDialog">
+        <div>
+            <span>Add User</span>
+            <span id="close_UserDialog" class="fa fa-remove" aria-hidden="true" ng-click="closeUserDialog()"></span>
+            <span id="separate_UserDialog"></span>
+            <span>User Name:</span>
+            <span id="input_UserDialog">
+                <input class="form-control" type="text" placeholder="User Name"/>
+            </span>
+            <p id="add_UserDialog" ng-click="closeUserDialog()">Add</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

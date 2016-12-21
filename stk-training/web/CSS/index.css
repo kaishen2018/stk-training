@@ -1,0 +1,406 @@
+/*所有模块初始化隐藏*/
+#ini, #turn, #login, #main {
+    display: none;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    min-width: 900px;
+    background-color: #e0f0f9;
+}
+
+#ini, #turn {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#ini p {
+    margin: 5px;
+    font-size: 15pt;
+    color: #f75b50;
+}
+
+.header {
+    background-color: #005e89;
+    width: 100%;
+    height: 65px;
+}
+
+.img_header {
+    display: inline-block;
+    width: 30px;
+    height: auto;
+    float: left;
+    margin: 15px 10px 10px 10px;
+}
+
+.title_header {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 18pt;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+#title_login {
+    color: #0f3552;
+    margin: 20px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+#login table {
+    text-align: center;
+    margin: auto;
+}
+
+#login {
+    width: 100%;
+}
+
+#login table {
+    width: 80%;
+    min-width: 200px;
+    max-width: 500px;
+    background-color: #ffffff;
+    border: 1px solid #005e89;
+}
+
+#login table td {
+    padding: 10px;
+}
+
+#login table td h4 {
+    color: #0f3552;
+    margin-bottom: 0px;
+}
+
+.rightBorder {
+    background-color: #e0f0f9;
+    border-right: 1px solid #005e89;
+}
+
+.hint {
+    padding: 0px;
+    color: #a39da4;
+}
+
+#register_login, #login_login {
+    width: auto;
+    margin: auto;
+}
+
+#register_login {
+    color: #ffffff;
+    background-color: #005e89;
+}
+
+#username_main {
+    display: inline-block;
+    float: right;
+    height: 100%;
+    color: #ffffff;
+    font-size: 15pt;
+    vertical-align: middle;
+    padding-top: 15px;
+}
+
+#username_main img {
+    width: 10%;
+    height: auto;
+}
+
+#username_main p {
+    padding: 10px;
+    text-align: center;
+    display: none;
+    background-color: #7abadf;
+}
+
+#header_main {
+    float: left;
+    width: 100%;
+}
+
+/**
+#menu_main {
+    float: right;
+    background-color: #fafafb;
+}
+
+#menu_main div {
+    width: 100%;
+    height: auto;
+    font-size: 15pt;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+
+#share_menu_main:hover, #bars_menu_main:hover, #font_menu_main:hover, #reply_menu_main:hover, #zoomIn_menu_main:hover, #zoomOut_menu_main:hover {
+    color: #ea4f48;
+}
+
+#select_menu {
+    float: right;
+    width: 300px;
+    text-align: center;
+    border-right: 1px solid #e5e5e7;
+    background-color: #fefefe;
+    display: none;
+}
+
+#select_menu div, #select_menu table {
+    width: 100%;
+    text-align: center;
+}
+
+#select_menu img {
+    width: 10px;
+    height: auto;
+    display: inline-block;
+}
+
+#select_menu tr {
+    border-top: 1px solid #e5e5e7;
+}
+
+#select_menu td {
+    padding: 15px;
+}
+
+#select_menu div {
+    padding: 20px;
+}
+**/
+
+#item_main {
+    float: left;
+    width: 200px;
+    background-color: #333333;
+}
+
+#item_main span {
+    font-size: 13pt;
+    color: #ffffff;
+    margin-left: 5px;
+}
+
+#item_main p {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 20pt;
+}
+
+#item_main td {
+    width: 200px;
+    padding: 15px 0px 15px 10px;
+    border-bottom: 2px solid #444444;
+}
+
+#user_item_main p, #user_item_main span {
+    color: #b8c7ce;
+}
+
+#content_users {
+    display: none;
+}
+
+#content_main span {
+    font-size: 12pt;
+    color: #005e89;
+}
+
+#content_main table {
+    margin: auto;
+}
+
+#content_main h2 {
+    margin: 0px;
+}
+
+#total, #new, #users {
+    color: #ffffff;
+    padding: 10px 20px 0px 20px;
+    margin: 0px 20px 0px 20px;
+}
+
+#total_footer, #new_footer, #users_footer {
+    height: 30px;
+    /*min-width: 100px;*/
+    /*max-width: 350px;*/
+    padding: 0px 20px 0px 20px;
+    margin: -10px 20px 0px 20px;
+}
+
+#total {
+    background-color: #00bfee;
+}
+
+#total_footer {
+    background-color: #32c6eb;
+}
+
+#new {
+    background-color: #00a65a;
+}
+
+#new_footer {
+    background-color: #33b67b;
+}
+
+#users {
+    background-color: #dc4b39;
+}
+
+#users_footer {
+    background-color: #e26f60;
+}
+
+#img_content_main {
+    padding: 20px;
+    min-width: 300px;
+}
+
+#img_content_main p {
+    padding-left: 10px;
+    background-color: #ffffff;
+    border-top: 10px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    margin: 0px;
+    font-size: 12pt;
+}
+
+#img_content_main img {
+    margin: 0px;
+    width: 100%;
+    height: 350px;
+    /*padding: 0px 20px 20px 20px;*/
+}
+
+#content_users div {
+    /*margin-top: -1px;*/
+    /*border: 1px solid #bbbbbb;*/
+    /*border-collapse: collapse;*/
+}
+
+#title_content_users {
+    margin: 10px;
+    font-size: 13pt;
+    color: #005e89;
+    display: inline-block;
+    padding: 5px 0px 10px 0px;
+}
+
+#add_content_users a {
+    color: #005e89;
+    /*float: left;*/
+    width: 150px;
+    padding: 10px;
+    margin-left: 15px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #bbbbbb;
+    background-color: #ffffff;
+}
+
+#content_content_users {
+    background-color: #ffffff;
+    margin: 10px 10px 10px 215px;
+}
+
+#content_content_users div {
+    margin: 10px;
+}
+
+#content_users table {
+    text-align: center;
+    margin: auto;
+}
+
+#content_content_users {
+    border: 1px solid #bbbbbb;
+    height: 400px;
+}
+
+#content_content_users input {
+    width: 150px;
+}
+
+#content_content_users span {
+    width: 100%;
+    display: inline-block;
+    padding: 5px;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+#content_users td {
+    vertical-align: middle;
+    border: 1px solid #bbbbbb;
+    border-collapse: collapse;
+}
+
+#content_users table a {
+    display: inline-block;
+    padding: 15px;
+}
+
+#content_users input {
+    /*width: 20px;*/
+    display: none;
+}
+
+#addUserDialog {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#addUserDialog div {
+    width: 300px;
+    height: 240px;
+    padding: 10px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#addUserDialog span {
+    display: inline-block;
+    /*padding: 5px;*/
+}
+
+#close_UserDialog {
+    float: right;
+}
+
+#input_UserDialog {
+    width: 180px;
+    display: inline-block;
+}
+
+#add_UserDialog {
+    color: #ffffff;
+    width: 80px;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 200px;
+    display: block;
+    float: right;
+    padding: 10px;
+    position: absolute;
+    background-color: #7abbe0;
+}
+
+#separate_UserDialog {
+    width: 100%;
+    height: 2px;
+    display: block;
+    margin: 10px 0px 10px 0px;
+    background-color: #bbbbbb;
+}
