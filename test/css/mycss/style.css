@@ -1,0 +1,434 @@
+
+body {
+    font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;
+    background-color: #e9e9e9;
+}
+
+.light-blue {
+    background-color: #00c0ef;
+}
+
+.dark-green {
+    background-color: #00a65a;
+}
+
+.deep-red {
+    background-color: #dd4b39;
+}
+
+.teeth-white {
+    background-color: #fbfbfc;
+}
+
+.navy-blue {
+    background-color: #005e89;
+}
+
+.mybtn-style {
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #e9e9e9;
+
+}
+
+.myfont14 {
+    font-size: 14px;
+}
+
+.myfont16 {
+    font-size: 16px;
+}
+
+.myfont18 {
+    font-size: 18px;
+}
+
+/*right nav start*/
+.mySpy {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-color: #fbfbfc;
+    border-right: 1px solid #bfbfbf;
+    border-left: 1px solid #d9d9d9;
+    z-index: 100;
+}
+
+.mySpy ul {
+
+}
+
+.mySpy ul li {
+    margin-left: -25px;
+    text-align: center;
+    margin-top: 30px;
+    list-style-type: none;
+}
+
+.mySpy ul li a i {
+    display: inline-block;
+    padding-bottom: 20px;
+    font-size: 18px;
+
+}
+
+.mySpy ul li a {
+    color: #2e3845;
+}
+
+.orange-yellow {
+    color: #f75b50;
+}
+
+.mySpy a:hover {
+    color: #f75b50;
+}
+
+/*right nav end*/
+
+/*pages start*/
+.myPages {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.myPages .onPages {
+    width: 1024px;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    background-color: #d9edf7;
+    height: 780px;
+}
+
+.myPages .onPages .toptitle {
+    height: 70px;
+    background-color: #005e89;
+    border-color: #3949ab;
+}
+
+.toptitle .titleinner {
+    color: #fffff9;
+    height: 30px;
+    padding-top: 20px;
+}
+
+.titleinner .tit-right {
+    width: 100px;
+    float: left;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* pages left nav*/
+.right-nav {
+    font-size: 14px;
+    width: 180px;
+    height: 700px;
+    color: #fff;
+    background-color: #333333;
+    border-color: #444444;
+    display: block;
+    float: left;
+}
+
+.right-nav .rig-pad {
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #444444;
+}
+
+.rig-pad i {
+    font-size: 17px;
+}
+
+.rig-pad p {
+    margin-left: 20px;
+}
+
+/*middle pages*/
+.mid-page {
+    float: left;
+    width: 844px;
+}
+
+.mid-page .mid-page-top p {
+    margin-left: 5px;
+    padding-top: 10px;
+}
+
+/*middle table and status*/
+
+.mid-page-status {
+    float: left;
+    width: 840px;
+}
+
+.mid-page-status .status-dif {
+
+}
+
+.status-sss {
+    float: left;
+    width: 220px;
+    height: 124px;
+    border: 1px solid #dddddd;
+    z-index: 20;
+    color: #ffffff;
+    margin-left: 45px;
+}
+
+.status-sss p {
+    margin: 18px;
+}
+
+/*page table info */
+.mid-page-tableinfo {
+    float: left;
+    width: 755px;
+    margin-left: 45px;
+    margin-top: 20px;
+}
+
+.info-in {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 25px;
+    padding-top: 5px;
+    background-color: #fbfbfc;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.img-table {
+    float: left;
+    margin-top: 0;
+
+    width: 745px;
+    padding: 5px;
+    background-color: #fbfbfc;
+}
+
+/*User Managerment css*/
+.user {
+    margin-left: 20px;
+
+}
+
+.user-add {
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #005e89;
+    font-size: 16px;
+    border: 1px solid #bfbfbf;
+}
+
+.user-details {
+    margin-top: 20px;
+    font-size: 16px;
+    width: 800px;
+    height: 560px;
+    border: 1px solid #bfbfbf;
+}
+
+.user-detail {
+    line-height: 30px;
+    font-size: 14px;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.user-detail span {
+    margin-left: 5px;
+}
+
+.user-table {
+    margin: 10px;
+    font-size: 16px;
+    width: auto;
+    height: 470px;
+    text-align: center;
+    border: 1px solid #bfbfbf;
+}
+
+.user-table table {
+    width: 778px;
+}
+
+.user-table td {
+    border: 1px solid #bfbfbf;
+    font-size: 14px;
+    width: 156px;
+}
+
+.user-table tbody {
+
+}
+
+.user-table tbody td {
+    font-size: 16px;
+    height: 40px;
+    text-align: center;
+
+}
+
+.user-table tbody td div {
+    text-align: center;
+    width: 50px;
+    float: left;
+}
+
+.user-table tbody tr .span-blue {
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #5677fc;
+}
+
+.user-table tbody td input {
+    text-align: center;
+    width: 130px;
+
+}
+
+/*home login*/
+
+.loRe-big {
+    margin-top: 50px;
+    text-align: center;
+    width: 570px;
+}
+
+.loRe-big .loRe-mid {
+    text-align: center;
+    margin: auto;
+}
+
+.mid-title {
+    width: 280px;
+    margin: auto;
+    line-height: 60px;
+}
+
+.mid-mid {
+    border: 1px solid #005e89;
+    float: left;
+    width: 570px;
+    height: 340px;
+}
+
+.mid-login {
+    float: left;
+    width: 280px;
+    height: 340px;
+    border-right: 1px solid #005e89;
+}
+
+.mid-login input {
+    border-radius: 8px;
+    height: 30px;
+    width: 220px;
+}
+
+.mid-register {
+    float: left;
+    width: 280px;
+    height: 340px;
+}
+
+.mid-register input {
+    border-radius: 10px;
+    height: 30px;
+    width: 220px;
+}
+
+/*modal*/
+.modal {
+    width: 640px;
+    height: auto;
+}
+
+.modal-header {
+
+}
+
+.modal-body {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.body-center {
+    width: 480px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.body-center h4 {
+    text-align: left;
+    margin: 25px 0 15px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #cccccc;
+}
+
+/* radio ground*/
+.txt-left-argin {
+    text-align: left;
+}
+
+/*On the right side can close the page */
+
+.rig-close-page {
+    position: fixed;
+    right: 52px;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    color: #636a74;
+    transition: width 0.2s;
+}
+
+.rig-close-page .close-page-head {
+    text-align: center;
+    line-height: 50px;
+    display: inline;
+}
+
+.rig-close-page .close-page-head span {
+    margin-left: 100px;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 65px;
+}
+
+.rig-close-page .close-page-nav {
+    width: 100%;
+}
+
+.rig-close-page .close-page-nav div {
+    cursor: pointer;
+    height: auto;
+    padding-left: 30px;
+    line-height: 50px;
+    border-top: 1px solid #e6e6e8;
+}
+
+.rig-close-page .close-page-nav span {
+    margin-left: 10px;
+
+}
+
