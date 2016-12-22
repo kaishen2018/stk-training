@@ -3,12 +3,17 @@
     "name":"Lemon yang",
     "password": "pad1",
     "profession":"teacher",
+    "admin":"beck",
+    "date":"",
+    "lastDate":"",
     "id":1
   },
   "user2" :{
     "name":"Lemon yang",
     "password": "pad2",
-    "profession":"student",
+    "admin":"beck",
+    "date":"",
+    "lastDate":"",
     "id":2
   }
 }

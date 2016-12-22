@@ -16,21 +16,23 @@
                     aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="exampleModalLabel">Add User</h4>
           </div>
+
           <div class="modal-body">
             <form>
-              <table class="span6">
-                <tr>
-                  <td style="text-align: right"><label for="recipient-name" class="control-label">User Name:</label>
-                  </td>
-                  <td><input type="text"  id="recipient-name"></td>
-                </tr>
-              </table>
+              <!--<table class="span6">-->
+
+                  <!--<td style="text-align: right"><label for="recipient-name" class="control-label">User Name:</label>-->
+                  <!--</td>-->
+                  <!--<td></td>--><input type="text" name="nName" id="recipient-name">
+
+              <!--</table>-->
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add</button>
+            <button ng-click="createUser()" type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
           </div>
+
         </div>
       </div>
     </div>
@@ -50,42 +52,45 @@
             <th>Last Updated Date</th>
           </tr>
           <tr ng-repeat="user in users">
-            <td title="'date'" >
+            <form action="">
+              <td title="'date'">
               <span class="span-blue span" ng-if="!user.$edit"
-                 ng-click="user.$edit=true">Edit</span>
-              <span class="span-blue span"  ng-if="user.$edit"
-                 ng-click="user.$edit=false">Save</span>
-              <span class="span-blue span"  ng-if="user.$edit"
-                 ng-click="user.$edit=false">Cancel</span>
+                    ng-click="user.$edit=true">Edit</span>
+                <span class="span-blue span" ng-if="user.$edit"
+                      ng-click="user.$edit=false">Save</span>
+                <span class="span-blue span" ng-if="user.$edit"
+                      ng-click="user.$edit=false">Cancel</span>
 
-              <!-- Small modal -->
-              <span class="span-blue span" ng-if="!user.$edit" data-toggle="modal" data-target="#exampleModaltwo">
+                <!-- Small modal -->
+                <span class="span-blue span" ng-if="!user.$edit" data-toggle="modal" data-target="#exampleModaltwo">
                 Delete
               </span>
 
 
-
-              <!-- <a href="" ng-click="addStudent()" ng-if="student.$edit" class="btn btn-default btn-xs">Add</a> -->
-            </td>
-            <td title="'name'">
-              <span ng-if="!user.$edit">{{user.name}}</span>
-              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.name}}">
-              </div>
-            </td>
-            <td title="'admin'">
-              <span ng-if="!user.$edit">{{user.name}}</span>
-              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.admin}}"></div>
-            </td>
-            <td title="'date'">
-              <span ng-if="!user.$edit">{{user.date}}</span>
-              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.date}}">
-              </div>
-            </td>
-            <td title="'lastDate'">
-              <span ng-if="!user.$edit">{{user.date}}</span>
-              <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.lastDate}}">
-              </div>
-            </td>
+                <!-- <a href="" ng-click="addStudent()" ng-if="student.$edit" class="btn btn-default btn-xs">Add</a> -->
+              </td>
+              <td title="'name'">
+                <span ng-if="!user.$edit">{{user.uName}}</span>
+                <div ng-if="user.$edit"><input name="uName" class="form-control" type="text" value="{{user.uName}}">
+                </div>
+              </td>
+              <td title="'admin'">
+                <span ng-if="!user.$edit">{{user.uAdmin}}</span>
+                <div ng-if="user.$edit"><input name="uAdmin" class="form-control" type="text" value="{{user.uAdmin}}">
+                </div>
+              </td>
+              <td title="'date'">
+                <span ng-if="!user.$edit">{{user.uDate}}</span>
+                <div ng-if="user.$edit"><input name="uDate" class="form-control" type="text" value="{{user.uDate}}">
+                </div>
+              </td>
+              <td title="'lastDate'">
+                <span ng-if="!user.$edit">{{user.uLastDate}}</span>
+                <div ng-if="user.$edit"><input name="uLastDate" class="form-control" type="text"
+                                               value="{{user.uLastDate}}">
+                </div>
+              </td>
+            </form>
           </tr>
         </table>
 
@@ -101,20 +106,20 @@
               <h4 class="modal-title" id="exampleModalLabeltwo">Add User</h4>
             </div>
             <div class="modal-body">
-                <p>Are you Delete</p>
+              <p>Are you Delete</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-              <button type="button" class="btn btn-primary">Delete</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!--<script>-->
-      <!--$(function () {-->
-        <!--$("#user-table").find("input").hide();-->
-      <!--})-->
+    <!--$(function () {-->
+    <!--$("#user-table").find("input").hide();-->
+    <!--})-->
     <!--</script>-->
   </div>
 </div>

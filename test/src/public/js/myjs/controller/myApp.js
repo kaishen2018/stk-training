@@ -21,7 +21,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
           "": {
             templateUrl: '../../../views/pageNav.html',
             controller: function ($scope) {
-              //$scope.$parent.ctrHome.isshow = true;
               console.log("login success");
             }
           },
@@ -57,6 +56,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '../../../views/pageNav.html',
             controller: function ($scope) {
               console.log("login success");
+
             }
           },
           pages: {
@@ -74,31 +74,54 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
 
+  var users;     //mysql user table data
+
   $scope.cout = 0;
 
-  $scope.users = [
-    {name: "Lemon Yang", admin: "Beck", date: "2016-12-13", lastDate: "2016-12-19"},
-    {name: "Lemon Yang", admin: "Beck", date: "2016-12-13", lastDate: "2016-12-19"},
-    {name: "Lemon Yang", admin: "Beck", date: "2016-12-13", lastDate: "2016-12-19"},
-    {name: "Lemon Yang", admin: "Beck", date: "2016-12-13", lastDate: "2016-12-19"}
-  ];
+  $scope.users = {};
   $scope.isshow = false;
+  $scope.username = "";
+  $scope.userpwd = "";
+
   $scope.loginIn = function () {
     $scope.isshow = true;
+
+    var chUsers = users;
+
+    console.log(chUsers.length);
+    for (var i=0;i < chUsers.length; i++){
+      console.log(chUsers[i].uName);
+    }
   };
 
+
   $scope.formData= {};
-  $http.get('/#/index')
+  $http.get('/api/index')
+    .success(function (data) {
+      console.log( data);
+      $scope.users = data;
+    })
+    .error(function (err) {
+      console.log('Error: ',err);
+    });
+
+  // $scope.updateUser = function(user){
+  //   var uindex = users.indexOf(user);
+  //   console.log(uindex);
+  //   $scope.usersta = !user.$edit;
+  // }
+
+  $scope.createUser = function () {
+    console.log("-------> createUser");
+    $http.post("/api/index",$scope.formData)
       .success(function (data) {
+        $scope.formData = {};
         $scope.users = data;
-        console.log("myApp"+data);
-      })
-      .error(function (err) {
-        console.log('Error: ',err);
-      })
-
-
-
+        console.log(data);
+      }).error(function (err) {
+        console.log(err.stack);
+    });
+  }
 });
 
 
