@@ -2,11 +2,11 @@
  * Created by beck.zhang on 12/21/2016.
  */
 var express = require("express");
-var routergo = express.Router();
+var router = express.Router();
 var fs = require("fs");
 
-routergo.get('/',function (req, res) {
-
+router.get('/',function (req, res) {
+  res.render('index',{title: "Express"});
   fs.readFile("./test/src/public/users.json",function (err, data) {
     if(err){
       console.log(err.stack);
@@ -18,4 +18,4 @@ routergo.get('/',function (req, res) {
   console.log("get /");
 });
 
-module.exports = routergo;
+module.exports = router;

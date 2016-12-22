@@ -1,13 +1,16 @@
 /**
  * Created by beck.zhang on 12/21/2016.
  */
-
+var path = require('path');
 var express = require("express");
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var app = express();
 var fs = require("fs");
 var router = require("./router");
+
+app.set('views', path.join(__dirname + "/public"));
+app.set('view engine', 'ejs');
 
 app.use(methodOverride('X-HTTP-Method'));
 app.use(methodOverride('X-HTTP-Method-Override'));
@@ -16,7 +19,7 @@ app.use(methodOverride('X-Method-Override'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(express.static( "../" + __dirname + "/public"));
+app.use(express.static( __dirname + "/public"));
 
 app.use("/api/index",router);
 

@@ -8,7 +8,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
       .state('index', {
         url: "/index",
-        templateUrl: "./home.html",
+        templateUrl: "../../../views/home.html",
         controller:function ($scope) {
           console.log("enter index");
         }
@@ -19,14 +19,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/pages',
         views: {
           "": {
-            templateUrl: './pageNav.html',
+            templateUrl: '../../../views/pageNav.html',
             controller: function ($scope) {
               //$scope.$parent.ctrHome.isshow = true;
               console.log("login success");
             }
           },
           "pages": {
-            templateUrl: "./page1.html",
+            templateUrl: "../../../views/page1.html",
             controller: function ($scope) {
               console.log("first enter page1");
             }
@@ -37,13 +37,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/page1',
         views: {
           "": {
-            templateUrl: './pageNav.html',
+            templateUrl: '../../../views/pageNav.html',
             controller: function ($scope) {
               console.log("login success");
             }
           },
           "pages": {
-            templateUrl: "./page1.html",
+            templateUrl: "../../../views/page1.html",
             controller: function ($scope) {
               console.log("enter page1")
             }
@@ -54,13 +54,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/page2',
         views: {
           "": {
-            templateUrl: './pageNav.html',
+            templateUrl: '../../../views/pageNav.html',
             controller: function ($scope) {
               console.log("login success");
             }
           },
           pages: {
-            templateUrl: './page2.html',
+            templateUrl: '../../../views/page2.html',
             controller: function ($scope) {
               console.log("enter page2");
 
@@ -88,10 +88,10 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
   };
 
   $scope.formData= {};
-  $http.get('/api/todos')
+  $http.get('/#/index')
       .success(function (data) {
         $scope.users = data;
-        console.log(data);
+        console.log("myApp"+data);
       })
       .error(function (err) {
         console.log('Error: ',err);
