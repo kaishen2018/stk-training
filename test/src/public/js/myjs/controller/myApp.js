@@ -74,7 +74,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
 
-  var users;     //mysql user table data
+
 
   $scope.cout = 0;
 
@@ -86,12 +86,12 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
   $scope.loginIn = function () {
     $scope.isshow = true;
 
-    var chUsers = users;
-
-    console.log(chUsers.length);
-    for (var i=0;i < chUsers.length; i++){
-      console.log(chUsers[i].uName);
-    }
+    // var chUsers = users;
+    //
+    // console.log(chUsers.length);
+    // for (var i=0;i < chUsers.length; i++){
+    //   console.log(chUsers[i].uName);
+    // }
   };
 
 
@@ -121,7 +121,29 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
       }).error(function (err) {
         console.log(err.stack);
     });
+  };
+
+  $scope.deleteUser = function (uid) {
+    console.log("--------> delteUser");
+    $http.delete('/api/index/'+uid)
+      .success(function (data) {
+        $scope.users = data;
+      }).error(function (err) {
+        console.log(err.stack);
+    });
+  };
+  $scope.updateUser =function (user) {
+    console.log('---------> updateUser'+ user);
+    var uid = user.uid;
+    $http.put('/api/index',uid)
+      .success(function (data) {
+        $scope.users = data;
+      })
+      .error(function (err) {
+
+    });
   }
+
 });
 
 

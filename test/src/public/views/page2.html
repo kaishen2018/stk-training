@@ -21,9 +21,11 @@
             <form>
               <!--<table class="span6">-->
 
-                  <!--<td style="text-align: right"><label for="recipient-name" class="control-label">User Name:</label>-->
+                  <!--<td style="text-align: right">-->
                   <!--</td>-->
-                  <!--<td></td>--><input type="text" name="nName" id="recipient-name">
+                  <!--<td></td>-->
+              <label for="recipient-name" class="control-label">User Name:</label>
+              <input type="text" name="nName" ng-model="formData.nName" id="recipient-name">
 
               <!--</table>-->
             </form>
@@ -52,22 +54,21 @@
             <th>Last Updated Date</th>
           </tr>
           <tr ng-repeat="user in users">
-            <form action="">
+            <form >
               <td title="'date'">
-              <span class="span-blue span" ng-if="!user.$edit"
+                <input type="hidden" name="user_id" ng-model="">
+                <span class="span-blue span" ng-if="!user.$edit"
                     ng-click="user.$edit=true">Edit</span>
                 <span class="span-blue span" ng-if="user.$edit"
-                      ng-click="user.$edit=false">Save</span>
+                      ng-click="user.$edit=false && updateUser(user)">Save</span>
                 <span class="span-blue span" ng-if="user.$edit"
                       ng-click="user.$edit=false">Cancel</span>
 
                 <!-- Small modal -->
-                <span class="span-blue span" ng-if="!user.$edit" data-toggle="modal" data-target="#exampleModaltwo">
+                <span class="span-blue span" ng-click="deleteUser(user.uid)" ng-model="delete_id" ng-if="!user.$edit" data-toggle="modal" data-target="#exampleModaltwo">
                 Delete
               </span>
 
-
-                <!-- <a href="" ng-click="addStudent()" ng-if="student.$edit" class="btn btn-default btn-xs">Add</a> -->
               </td>
               <td title="'name'">
                 <span ng-if="!user.$edit">{{user.uName}}</span>
@@ -96,14 +97,14 @@
 
 
       </div>
-
+    <!--
       <div class="modal fade" id="exampleModaltwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                       aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="exampleModalLabeltwo">Add User</h4>
+              <h4 class="modal-title" id="exampleModalLabeltwo">Delete User</h4>
             </div>
             <div class="modal-body">
               <p>Are you Delete</p>
@@ -115,7 +116,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--<script>-->
     <!--$(function () {-->
     <!--$("#user-table").find("input").hide();-->
