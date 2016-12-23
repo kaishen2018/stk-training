@@ -1,0 +1,18 @@
+﻿git上传步骤：
+$git init     (初始化)
+$git add .    (选择要添加进仓库的文件,如果传指定的，只需要把“.”改为文件名即可)
+$git pull(防止有冲突）
+$git commit -m 'first commit'(提交更新，并注释信息“first commit”)
+$git remote add origin git@github.com:yangguoyk2015/stk-training.git
+$git push -u origin master  (将本地项目更新到github项目上去)
+
+git删除步骤:
+$git pull
+$git checkout
+$rm -r dirname
+$git add --all
+$git commit -m "i remove something"
+$git push (you git url)
+$input your name
+$inout your password
+
