@@ -21,9 +21,9 @@
             <form>
               <!--<table class="span6">-->
 
-                  <!--<td style="text-align: right">-->
-                  <!--</td>-->
-                  <!--<td></td>-->
+              <!--<td style="text-align: right">-->
+              <!--</td>-->
+              <!--<td></td>-->
               <label for="recipient-name" class="control-label">User Name:</label>
               <input type="text" name="nName" ng-model="formData.nName" id="recipient-name">
 
@@ -54,41 +54,41 @@
             <th>Last Updated Date</th>
           </tr>
           <tr ng-repeat="user in users">
-            <form >
+            <form>
               <td title="'date'">
-                <input type="hidden" name="user_id" ng-model="">
+                <input type="hidden" name="user_id">
                 <span class="span-blue span" ng-if="!user.$edit"
-                    ng-click="user.$edit=true">Edit</span>
+                      ng-click="user.$edit=true ; editUser(user.uid)">Edit</span>
                 <span class="span-blue span" ng-if="user.$edit"
-                      ng-click="user.$edit=false && updateUser(user)">Save</span>
+                      ng-click="user.$edit=false ; saveUser()">Save</span>
                 <span class="span-blue span" ng-if="user.$edit"
                       ng-click="user.$edit=false">Cancel</span>
 
                 <!-- Small modal -->
-                <span class="span-blue span" ng-click="deleteUser(user.uid)" ng-model="delete_id" ng-if="!user.$edit" data-toggle="modal" data-target="#exampleModaltwo">
-                Delete
-              </span>
+                <span class="span-blue span" ng-click="deleteUser(user.uid)" ng-if="!user.$edit"
+                      data-toggle="modal" data-target="#exampleModaltwo">
+                  Delete
+                </span>
 
               </td>
               <td title="'name'">
                 <span ng-if="!user.$edit">{{user.uName}}</span>
-                <div ng-if="user.$edit"><input name="uName" class="form-control" type="text" value="{{user.uName}}">
+                <div ng-if="user.$edit"><input ng-model="oneUser.uName" name="uName" class="form-control" type="text" >
                 </div>
               </td>
               <td title="'admin'">
                 <span ng-if="!user.$edit">{{user.uAdmin}}</span>
-                <div ng-if="user.$edit"><input name="uAdmin" class="form-control" type="text" value="{{user.uAdmin}}">
+                <div ng-if="user.$edit"><input ng-model="oneUser.uAdmin" name="uAdmin" class="form-control" type="text" >
                 </div>
               </td>
               <td title="'date'">
                 <span ng-if="!user.$edit">{{user.uDate}}</span>
-                <div ng-if="user.$edit"><input name="uDate" class="form-control" type="text" value="{{user.uDate}}">
+                <div ng-if="user.$edit"><input ng-model="oneUser.uDate" name="uDate" class="form-control" type="text" >
                 </div>
               </td>
               <td title="'lastDate'">
                 <span ng-if="!user.$edit">{{user.uLastDate}}</span>
-                <div ng-if="user.$edit"><input name="uLastDate" class="form-control" type="text"
-                                               value="{{user.uLastDate}}">
+                <div ng-if="user.$edit"><input ng-model="oneUser.uLastDate" name="uLastDate" class="form-control" type="text">
                 </div>
               </td>
             </form>
@@ -97,30 +97,31 @@
 
 
       </div>
-    <!--
-      <div class="modal fade" id="exampleModaltwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                      aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="exampleModalLabeltwo">Delete User</h4>
-            </div>
-            <div class="modal-body">
-              <p>Are you Delete</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+      <!--
+        <div class="modal fade" id="exampleModaltwo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabeltwo">Delete User</h4>
+              </div>
+              <div class="modal-body">
+                <p>Are you Delete</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> -->
-    <!--<script>-->
-    <!--$(function () {-->
-    <!--$("#user-table").find("input").hide();-->
-    <!--})-->
-    <!--</script>-->
+      </div> -->
+      <!--<script>-->
+      <!--$(function () {-->
+      <!--$("#user-table").find("input").hide();-->
+      <!--})-->
+      <!--</script>-->
+    </div>
   </div>
 </div>

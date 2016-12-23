@@ -5,7 +5,7 @@ var express = require("express");
 var router = express.Router();
 var conn = require('./connectData');
 
-var uName, uAdmin, uDate, uLastDate;
+var uid, uName, uAdmin, uDate, uLastDate;
 conn.connect();
 router.get('/', function (req, res) {
   // res.render('index',{title: "Express"});
@@ -56,11 +56,30 @@ router.delete("/:user", function (req, res) {
   })
 });
 
-router.put('/',function (req, res) {
-  console.log("req body: ", JSON.stringify(req.body));
-  uName =
-  conn.query("update users set uName")
+// click edit button to display data in the input
+router.get('/:uid',function (req, res) {
+  console.log("click edit to show the id: ",req.params.uid);
+  conn.query("select * from users where uid=?",[req.params.uid],function (err, rows) {
+    if (err) console.log("select sql error: "+err.stack);
+    res.send(rows);
+  });
 
+});
+
+
+router.put("/",function (req, res) {
+  var date = new Date();
+  uid= req.body.uid;
+  uName = req.body.uName;
+  uLastDate = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+  console.log("--------------->click save to sql:");
+  conn.query("update users set uName=?,uLastDate=? where uid=?",[uName,uLastDate,uid],function (err, result) {
+    if(err) console.log(err.stack);
+    conn.query("select * from users", function (err, rows) {
+      if(err) console.log(err.stack);
+      res.send(rows);
+    })
+  });
 });
 
 

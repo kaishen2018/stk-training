@@ -9,7 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       .state('index', {
         url: "/index",
         templateUrl: "../../../views/home.html",
-        controller:function ($scope) {
+        controller: function ($scope) {
           console.log("enter index");
         }
         // controller: "HomeController",
@@ -63,18 +63,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '../../../views/page2.html',
             controller: function ($scope) {
               console.log("enter page2");
-
-
             }
           }
         }
       })
-
 });
 
 app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
-
-
 
   $scope.cout = 0;
 
@@ -86,64 +81,70 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
   $scope.loginIn = function () {
     $scope.isshow = true;
 
-    // var chUsers = users;
-    //
-    // console.log(chUsers.length);
-    // for (var i=0;i < chUsers.length; i++){
-    //   console.log(chUsers[i].uName);
-    // }
   };
 
 
-  $scope.formData= {};
+  $scope.formData = {};
+
   $http.get('/api/index')
-    .success(function (data) {
-      console.log( data);
-      $scope.users = data;
-    })
-    .error(function (err) {
-      console.log('Error: ',err);
-    });
-
-  // $scope.updateUser = function(user){
-  //   var uindex = users.indexOf(user);
-  //   console.log(uindex);
-  //   $scope.usersta = !user.$edit;
-  // }
-
-  $scope.createUser = function () {
-    console.log("-------> createUser");
-    $http.post("/api/index",$scope.formData)
       .success(function (data) {
-        $scope.formData = {};
-        $scope.users = data;
         console.log(data);
-      }).error(function (err) {
-        console.log(err.stack);
-    });
-  };
-
-  $scope.deleteUser = function (uid) {
-    console.log("--------> delteUser");
-    $http.delete('/api/index/'+uid)
-      .success(function (data) {
-        $scope.users = data;
-      }).error(function (err) {
-        console.log(err.stack);
-    });
-  };
-  $scope.updateUser =function (user) {
-    console.log('---------> updateUser'+ user);
-    var uid = user.uid;
-    $http.put('/api/index',uid)
-      .success(function (data) {
         $scope.users = data;
       })
       .error(function (err) {
+        console.log('Error: ', err);
+      });
 
+
+  $scope.createUser = function () {
+    console.log("-------> createUser");
+    $http.post("/api/index", $scope.formData)
+        .success(function (data) {
+          $scope.formData = {};
+          $scope.users = data;
+          console.log(data);
+        }).error(function (err) {
+      console.log(err.stack);
     });
-  }
+  };
 
+
+  $scope.deleteUser = function (uid) {
+    console.log("--------> delteUser");
+    $http.delete('/api/index/' + uid)
+        .success(function (data) {
+          $scope.users = data;
+        }).error(function (err) {
+      console.log(err.stack);
+    });
+  };
+
+
+  $scope.oneUser = {};
+
+  console.log($scope.oneUser);
+
+  $scope.editUser = function (uid) {
+    $http.get('/api/index/' + uid)
+        .success(function (data) {
+          $scope.oneUser = data[0];
+          console.log("$scope.oneUser", $scope.oneUser);
+        }).error(function (err) {
+      console.log(err.stack);
+    });
+  };
+
+  $scope.saveUser = function () {
+    $http.put('/api/index', $scope.oneUser)
+        .success(function (data) {
+          $scope.oneUser = {};
+          $scope.users = data;
+          console.log("$scope.users: ", $scope.users);
+        })
+        .error(function (err) {
+          console.log(err.stack);
+        });
+  }
 });
 
 
