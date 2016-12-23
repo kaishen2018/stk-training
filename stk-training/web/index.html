@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="ini" ng-app="iniApp" ng-controller="iniCtrl">
-    <img id="img_ini" src="./Image/logo-lg.svg">
+    <img id="img_ini" src="./Image/logo-lg.png">
     <canvas id="progress_ini"></canvas>
     <p id="text_ini"> loading Administrator...</p>
 </div>
@@ -42,21 +42,24 @@
             <td class="hint">Create &nbsp;a new account</td>
         </tr>
         <tr>
-            <td class="rightBorder"><input class="form-control" type="text" placeholder="User Name"/></td>
-            <td><input class="form-control" type="text" placeholder="User Name"/></td>
+            <td class="rightBorder"><input class="form-control" type="text" placeholder="User Name" ng-model="L_Name"/>
+            </td>
+            <td><input class="form-control" type="text" placeholder="User Name" ng-model="R_Name"/></td>
         </tr>
         <tr>
-            <td class="rightBorder"><input class="form-control" type="password" placeholder="Password"/></td>
-            <td><input class="form-control" type="password" placeholder="Password"/></td>
+            <td class="rightBorder"><input class="form-control" type="password" placeholder="Password"
+                                           ng-model="L_Pass"/></td>
+            <td><input class="form-control" type="password" placeholder="Password" ng-model="R_Pass"/></td>
         </tr>
         <tr>
             <td class="rightBorder"><input id="login_login" class="form-control sbutton" type="button"
-                                           value="Login" ng-click="go()"/></td>
+                                           value="Login" ng-click="login()"/></td>
             <td><input class="form-control" type="password" placeholder="Cinfirm password"/></td>
         </tr>
         <tr>
             <td class="rightBorder"></td>
-            <td><input id="register_login" class="form-control" type="button" value="Register"/></td>
+            <td><input id="register_login" class="form-control" type="button" value="Register" ng-click="register()"/>
+            </td>
         </tr>
     </table>
 </div>
@@ -140,21 +143,21 @@
             <tr>
                 <td>
                     <div id="total">
-                        <h2>156</h2>
+                        <h2>{{Total}}</h2>
                         <p>Total users</p>
                     </div>
                     <div id="total_footer"></div>
                 </td>
                 <td>
                     <div id="new">
-                        <h2>56</h2>
+                        <h2>{{New}}</h2>
                         <p>New users</p>
                     </div>
                     <div id="new_footer"></div>
                 </td>
                 <td>
                     <div id="users">
-                        <h2>100</h2>
+                        <h2>{{T_N}}</h2>
                         <p>Users pending</p>
                     </div>
                     <div id="users_footer"></div>
@@ -191,24 +194,24 @@
                     </tr>
                     <tr ng-repeat="x in Users">
                         <td>
-                            <a ng-click="toggleEdit(x)">Edit</a>
-                            <a ng-click="toggleEdit(x)">Delete</a>
+                            <a ng-click="EditSave(x)">Edit</a>
+                            <a ng-click="DeleteCancel(x)">Delete</a>
                         </td>
                         <td>
-                            <p ng-bind="x.UN"></p>
-                            <input class="form-control" type="text" placeholder="{{x.UN}}"/>
+                            <p ng-bind="x.name"></p>
+                            <input class="form-control" type="text" ng-model="x.name" placeholder="{{x.name}}"/>
                         </td>
                         <td>
-                            <p ng-bind="x.UN"></p>
-                            <input class="form-control" type="text" placeholder="{{x.UN}}"/>
+                            <p ng-bind="x.c_user"></p>
+                            <input class="form-control" type="text" ng-model="x.c_user" placeholder="{{x.c_user}}"/>
                         </td>
                         <td>
-                            <p ng-bind="x.CD"></p>
-                            <input class="form-control" type="text" placeholder="{{x.CD}}"/>
+                            <p ng-bind="x.c_time"></p>
+                            <input class="form-control" type="text" ng-model="x.c_time" placeholder="{{x.c_time}}"/>
                         </td>
                         <td>
-                            <p ng-bind="x.CD"></p>
-                            <input class="form-control" type="text" placeholder="{{x.CD}}"/>
+                            <p ng-bind="x.u_time"></p>
+                            <input class="form-control" type="text" ng-model="x.u_time" placeholder="{{x.u_time}}"/>
                         </td>
                     </tr>
                 </table>
@@ -219,12 +222,23 @@
         <div>
             <span>Add User</span>
             <span id="close_UserDialog" class="fa fa-remove" aria-hidden="true" ng-click="closeUserDialog()"></span>
-            <span id="separate_UserDialog"></span>
+            <span class="separate_UserDialog"></span>
             <span>User Name:</span>
             <span id="input_UserDialog">
-                <input class="form-control" type="text" placeholder="User Name"/>
+                <input class="form-control" type="text" ng-model="UserName" placeholder="User Name"/>
             </span>
-            <p id="add_UserDialog" ng-click="closeUserDialog()">Add</p>
+            <p id="add_UserDialog" ng-click="addUser()">Add</p>
+        </div>
+    </div>
+    <div id="DeleteUserDialog">
+        <div>
+            <span>Delete User</span>
+            <span id="close_DeleteUserDialog" class="fa fa-remove" aria-hidden="true"
+                  ng-click="closeDeleteUserDialog()"></span>
+            <span class="separate_UserDialog"></span>
+            <p id="ask_DeleteUserDialog">Are You Sure?</p>
+            <p id="ok_DeleteUserDialog" ng-click="deleteUser()">OK</p>
+            <p id="cancel_DeleteUserDialog" ng-click="closeDeleteUserDialog()">Cancel</p>
         </div>
     </div>
 </div>

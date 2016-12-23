@@ -327,7 +327,7 @@ body {
 }
 
 #content_content_users input {
-    width: 150px;
+    width: 120px;
 }
 
 #content_content_users span {
@@ -353,7 +353,7 @@ body {
     display: none;
 }
 
-#addUserDialog {
+#addUserDialog, #DeleteUserDialog {
     top: 0px;
     left: 0px;
     width: 100%;
@@ -362,7 +362,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#addUserDialog div {
+#addUserDialog div, #DeleteUserDialog div {
     width: 300px;
     height: 240px;
     padding: 10px;
@@ -375,7 +375,7 @@ body {
     /*padding: 5px;*/
 }
 
-#close_UserDialog {
+#close_UserDialog, #close_DeleteUserDialog {
     float: right;
 }
 
@@ -397,10 +397,32 @@ body {
     background-color: #7abbe0;
 }
 
-#separate_UserDialog {
+.separate_UserDialog {
     width: 100%;
     height: 2px;
     display: block;
     margin: 10px 0px 10px 0px;
     background-color: #bbbbbb;
+}
+
+#ask_DeleteUserDialog {
+    text-align: center;
+}
+
+#ok_DeleteUserDialog, #cancel_DeleteUserDialog {
+    color: #ffffff;
+    width: 80px;
+    text-align: center;
+    margin-top: 100px;
+    /*margin-left: 200px;*/
+    /*display: block;*/
+    /*float: right;*/
+    padding: 10px;
+    position: absolute;
+    background-color: #7abbe0;
+}
+
+#cancel_DeleteUserDialog {
+    margin-left: 200px;
+    float: right;
 }
