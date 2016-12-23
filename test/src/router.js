@@ -43,6 +43,16 @@ router.post('/', function (req, res) {
   })
 });
 
+router.post("/login",function (req, res) {
+  conn.query("select * from users where uName=?",[req.body.uName],function (err, rows) {
+    if(err){
+      alert("username or password error");
+    }
+    res.send(rows);
+  });
+});
+
+
 router.delete("/:user", function (req, res) {
   conn.query("delete from users where uid=?",[req.params.user],function (err, result) {
     console.log("--------> delete result"+ result);
@@ -63,7 +73,6 @@ router.get('/:uid',function (req, res) {
     if (err) console.log("select sql error: "+err.stack);
     res.send(rows);
   });
-
 });
 
 

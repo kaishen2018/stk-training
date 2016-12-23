@@ -5,25 +5,31 @@
       <p><strong>Configuration Manager</strong></p>
     </div>
     <div class="mid-mid span12">
+
       <div class="mid-login">
-        <div style="padding-top: 15px;"><span><strong>Login</strong></span></div>
-        <div><p style="color: #a39d9c;" class="myfont14">Access your account</p></div>
-        <div><input type="text" placeholder="User Name"></div>
-        <div style="margin-top: 20px;"><input type="text" placeholder="Password"></div>
-        <div style="margin-top: 30px;">
-          <button ng-click="loginIn()" class="mybtn-style teeth-white" ui-sref="login">Login</button>
-        </div>
+        <form>
+          <div style="padding-top: 15px;"><span><strong>Login</strong></span></div>
+          <div><p style="color: #a39d9c;" class="myfont14">Access your account</p></div>
+          <div><input ng-model="formData.loginName" name="loginName" type="text" placeholder="User Name"></div>
+          <div style="margin-top: 20px;"><input ng-model="formData.loginPwd" name="loginPwd" type="text"
+                                                placeholder="Password"></div>
+          <div style="margin-top: 30px;">
+            <button ng-click="loginIn()" ng-disabled="incomplete1" class="mybtn-style teeth-white" ui-sref="login">Login</button>
+          </div>
+        </form>
       </div>
 
       <div class="mid-register">
-        <div style="padding-top: 15px;"><span><strong>Sign Up</strong></span></div>
-        <div><p style="color: #a39d9c;" class="myfont14">Create a new account</p></div>
-        <div><input type="text" placeholder="User Name"></div>
-        <div style="margin-top: 20px;"><input type="text" placeholder="Password"></div>
-        <div style="margin-top: 20px;"><input type="text" placeholder="Confirm password"></div>
-        <div style="margin-top: 30px;">
-          <button class="mybtn-style navy-blue" style="color: #fff;">Register</button>
-        </div>
+        <form>
+          <div style="padding-top: 15px;"><span><strong>Sign Up</strong></span></div>
+          <div><p style="color: #a39d9c;" class="myfont14">Create a new account</p></div>
+          <div><input ng-model="formData.registerName" name="registerName" type="text" placeholder="User Name"></div>
+          <div style="margin-top: 20px;"><input ng-model="formData.registerPwd" name="registerPwd" type="text" placeholder="Password"></div>
+          <div style="margin-top: 20px;"><input name="registerPwd2" type="text" placeholder="Confirm password"></div>
+          <div style="margin-top: 30px;">
+            <button ng-disabled="incomplete2 || error" class="mybtn-style navy-blue" style="color: #fff;">Register</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

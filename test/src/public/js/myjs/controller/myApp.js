@@ -71,16 +71,61 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
 
-  $scope.cout = 0;
 
   $scope.users = {};
   $scope.isshow = false;
-  $scope.username = "";
-  $scope.userpwd = "";
+
+
+
+
+  /*$scope.error = false;
+  $scope.incomplete1 = false;
+  $scope.incomplete2 = false;
+
+  $scope.loginName = "";
+  $scope.loginPwd = "";
+  $scope.registerName = "";
+  $scope.registerPwd = "";
+  $scope.registerPwd2 = "";
+
+  $scope.$watch("formData.loginName",function () {$scope.test1();});
+  $scope.$watch("formData.loginPwd",function () {$scope.test1();});
+  $scope.$watch("formData.registerName",function () {$scope.test2();});
+  $scope.$watch("formData.registerPwd",function () {$scope.test2();});
+  $scope.$watch("formData.registerPwd2",function () {$scope.test2();});
+  $scope.test1 = function() {
+
+    $scope.incomplete = false;
+    if (!$formData.loginName.length ||
+        !$formData.loginPwd.length ) {
+      $scope.incomplete = true;
+    }
+  };
+  $scope.test2 = function() {
+    if ($formData.registerPwd !== $formData.registerPwd2) {
+      $scope.error = true;
+    } else {
+      $scope.error = false;
+    }
+    $scope.incomplete = false;
+    if (!$formData.registerName.length ||
+        !$formData.registerPwd.length ||
+        !$formData.registerPwd2.length) {
+      $scope.incomplete = true;
+    }
+  };*/
+
+
 
   $scope.loginIn = function () {
     $scope.isshow = true;
-
+    $http.post("/api/index/login",$scope.formData)
+        .success(function (data) {
+          $scope.formData = {};
+        })
+        .error(function (err) {
+          console.log("login error!");
+        });
   };
 
 
