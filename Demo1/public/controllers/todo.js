@@ -1,17 +1,29 @@
 function myCtrl($scope, $http, $state, $stateParams) {
 
+<<<<<<< HEAD
     // when the page loads, all API calls TODOs
     $http.get('/api/todos')
         .success(function (data) {
             $scope.users = data;
             console.log(data);
+=======
+    // $scope.formData = {};
+    // when the page loads, all API calls TODOs
+    $http.get('/api/todos')
+        .success(function (rows) {
+            $scope.users = rows;
+            console.log(rows);
+>>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
         })
         .error(function (err) {
             console.log('Error: ', err);
         });
 
+<<<<<<< HEAD
     //when a new user added, send the text to API
     $scope.formData = {};
+=======
+>>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
     $scope.user_add = function () {
         $http.post('/api/todos', $scope.formData)
             .success(function (data) {
@@ -23,6 +35,7 @@ function myCtrl($scope, $http, $state, $stateParams) {
                 console.log('Error :', err);
             });
     };
+<<<<<<< HEAD
 
     // get data of one user
     $scope.userData = {};
@@ -61,3 +74,6 @@ function myCtrl($scope, $http, $state, $stateParams) {
             })
     };
 }
+=======
+}
+>>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e

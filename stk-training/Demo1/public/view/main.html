@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <link rel="stylesheet" href="../css/view/main.css">
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+    <script src="../js/angular-ui-router.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <!--top-->
+            <div class="top">
+                <div class="top_login">
+                    <div class="l_logo">
+                        <i class="fa fa-th-large" style="font-size:28px;color: white"></i>
+                    </div>
+                    <div class="r_logo">
+                        <p style="white-space: nowrap">Configuration Manager</p>
+                    </div>
+
+                    <!--Dropdown-->
+                    <div class="dropdown">
+                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            <div class="user_down_i">
+                                <i class="fa fa-caret-down" style="font-size:20px;color: white">
+                                </i>
+                            </div>
+                            <div class="user_down">
+                                <p style="white-space: nowrap">UserA</p>
+                            </div>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel" style="margin-left: 60px">
+                            <a ui-sref="login">
+                                <button>Sign out</button>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-2">
+                    <!--Left column-->
+                    <div class="left_column">
+                        <div class="parent_menu">
+                            <div class="sub_menu">
+                                <div class="sub_menu_i">
+                                    <i class="fa fa-home" style="font-size:20px;color: white;"></i>
+                                </div>
+                                <a ui-sref="main.dashboard">
+                                    <div class="sub_menu_text">
+                                        <p style="white-space: nowrap">
+                                            Dashboard
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="parent_menu">
+                            <div class="sub_menu">
+                                <div class="sub_menu_i">
+                                    <i class="fa fa-users" style="font-size:20px;color: white"></i>
+                                </div>
+                                <a ui-sref="main.user">
+                                    <div id="user" class="sub_menu_text">
+                                        <p style="white-space: nowrap">
+                                            User Management
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 column">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

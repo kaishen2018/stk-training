@@ -1,0 +1,42 @@
+/**创建版本库**/
+mkdir filter
+cd
+pwd           //显示当前目录
+
+/**把当前目录变成可以管理的仓库**/
+git init
+
+/**添加远程仓库**/
+git remote add 仓库名 http
+
+
+/**克隆远程仓库**/
+git clone http
+
+/**创建分支**/
+git checkout -b dev
+
+/**查看当前分支**/
+git branch
+
+/**切换分支**/
+git checkout dev
+
+/**提交项目**/
+git add 项目名称
+git commit -m "备注"
+
+/**分支合并到主分支**/
+git marge dev
+
+
+/**删除分支**/
+git branch -d dev
+
+
+/**查看远程仓库信息**/
+git remote    or      git remote -v
+
+
+/**推送分支**/
+git push -u origin dev      //首次推送加-u 

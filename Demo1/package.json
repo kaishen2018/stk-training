@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "task1",
+=======
+  "name": "task",
+>>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,6 +13,7 @@
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+<<<<<<< HEAD
     "express": "^4.14.0",
     "express-generator": "^4.14.0",
     "jade": "~1.11.0",
@@ -18,5 +23,11 @@
   },
   "devDependencies": {
     "hbs": "^4.0.1"
+=======
+    "express": "~4.14.0",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+>>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
   }
 }

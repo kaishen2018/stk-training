@@ -32,30 +32,16 @@
                         <h4 class="modal-title" id="exampleModalLabel">Add User</h4>
                     </div>
                     <div class="modal-body">
-<<<<<<< HEAD
-                        <form name="myForm">
-                            <div class="form-group">
-                                <label>User Name:</label>
-                                <input type="text" name="text" class="userName"
-                                       ng-model="formData.name" required>
-=======
                         <form>
                             <div class="form-group">
                                 <label>User Name:</label>
                                 <input type="text" class="userName">
->>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-<<<<<<< HEAD
-                        <button ng-click="user_add()" type="button" class="btn btn-default" data-dismiss="modal"
-                                ng-disabled="myForm.text.$error.required">Add
-                        </button>
-=======
                         <button type="button" class="btn btn-primary">Add</button>
->>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
                     </div>
                 </div>
             </div>
@@ -63,11 +49,7 @@
     </div>
     <div class="user_management">
         <div class="table_title">User Details</div>
-<<<<<<< HEAD
-        <div class="table_frame">
-=======
         <div class="table_frame" ng-controller="userTable">
->>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
             <table>
                 <tr>
                     <th>Action</th>
@@ -79,55 +61,13 @@
                 <tr ng-repeat="user in users">
                     <td title="'date'" width="200">
                         <a href="" ng-if="!user.$edit" class="btn btn-default btn-xs"
-<<<<<<< HEAD
-                           ng-click="user.$edit=true;getData(user.uid)">Edit</a>
-
-                        <a href="" ng-if="user.$edit" class="btn btn-default btn-xs"
-                           ng-click="user.$edit=false;user_update()">Save</a>
-
-=======
                            ng-click="user.$edit=true">Edit</a>
                         <a href="" ng-if="user.$edit" class="btn btn-default btn-xs"
                            ng-click="user.$edit=false">Save</a>
->>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
                         <a href="" ng-if="user.$edit" class="btn btn-default btn-xs"
                            ng-click="user.$edit=false">Cancel</a>
 
                         <!-- Small modal -->
-<<<<<<< HEAD
-                        <button ng-if="!user.$edit" ng-click="getData(user.uid)"
-                                class="btn btn-default btn-xs"
-                                data-toggle="modal" data-target=".bs-example-modal-w">
-                            Delete
-                        </button>
-                    </td>
-                    <td title="'Name'">
-                        <span ng-if="!user.$edit">{{user.fName}}</span>
-                        <div ng-if="user.$edit">
-                            <input class="form-control" type="text"
-                                   ng-model="userData.fName" required>
-                        </div>
-                    </td>
-                    <td title="'Name'">
-                        <span ng-if="!user.$edit">{{user.lName}}</span>
-                        <div ng-if="user.$edit">
-                            <input class="form-control" type="text"
-                                   ng-model="userData.lName" required>
-                        </div>
-                    </td>
-                    <td title="'date'">
-                        <span ng-if="!user.$edit">{{user.fDate}}</span>
-                        <div ng-if="user.$edit">
-                            <input class="form-control" type="text"
-                                   ng-model="userData.fDate" required>
-                        </div>
-                    </td>
-                    <td title="'date'">
-                        <span ng-if="!user.$edit">{{user.lDate}}</span>
-                        <div ng-if="user.$edit">
-                            <input class="form-control" type="text"
-                                   ng-model="userData.lDate" required>
-=======
                         <button ng-if="!user.$edit" class="btn btn-default btn-xs"
                                 data-toggle="modal"
                                 data-target=".bs-example-modal-w">
@@ -153,7 +93,6 @@
                     <td title="'lastDate'">
                         <span ng-if="!user.$edit">{{user.lastDate}}</span>
                         <div ng-if="user.$edit"><input class="form-control" type="text" value="{{user.lastDate}}">
->>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
                         </div>
                     </td>
                 </tr>
@@ -180,13 +119,7 @@
                     <h4 class="modal-title">Are you sure?</h4>
                 </div>
                 <div class="modal-footer">
-<<<<<<< HEAD
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                            ng-click="user_delete(userData.uid)">
-                        Yes
-=======
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Yes
->>>>>>> 8a01663a083a25b2f3cbcc3f9a7ad4788338b06e
                     </button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
                 </div>
