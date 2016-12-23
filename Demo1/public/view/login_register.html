@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login-register</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/view/login_register.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/angular-route.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <!--top-->
+                    <div class="top">
+                        <div class="top_login">
+                            <div class="l_logo">
+                                <i class="fa fa-th-large" style="font-size:28px;color: white"></i>
+                            </div>
+                            <div class="r_logo">
+                                <p style="white-space: nowrap">Configuration Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <div class="title" style="line-height: 150px;">
+                                <p style="white-space: nowrap">Configuration Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6 column">
+
+                            <!--Login-->
+                            <div class="login">
+                                <div class="title" style="height: 35px">
+                                    <p style="white-space: nowrap">Login</p>
+                                </div>
+                                <div class="tagging">
+                                    <p style="white-space: nowrap">Access your account</p>
+                                </div>
+                                <div class="text_input">
+                                    <input type="text" placeholder="User Name">
+                                </div>
+                                <div class="text_input">
+                                    <input type="password" placeholder="Password">
+                                </div>
+                                <div class="text_input">
+                                    <a ui-sref="main"><input href="#/dashboard" type="button" value="Login"
+                                              style="background-color: white;width: 120px;height: 50px;margin-top: 30px">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 column">
+                            <!--Register-->
+                            <div class="register">
+                                <div class="title" style="height: 35px">
+                                    <p style="white-space: nowrap">Sign Up</p>
+                                </div>
+                                <div class="tagging">
+                                    <p style="white-space: nowrap">Create a new accunt</p>
+                                </div>
+                                <div class="text_input">
+                                    <input type="text" placeholder="User Name">
+                                </div>
+                                <div class="text_input">
+                                    <input type="password" placeholder="Password">
+                                </div>
+                                <div class="text_input">
+                                    <input type="password" placeholder="Confirm password">
+                                </div>
+                                <div class="text_input">
+                                    <input id="btn_register" type="submit" value="Register"
+                                           style="background-color: #005e89;width: 120px;height: 50px;color: white">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
