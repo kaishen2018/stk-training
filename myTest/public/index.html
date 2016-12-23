@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator</title>
+    <link rel="stylesheet" href="./stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="./stylesheets/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css" media="screen">
+    <script src="./javascripts/jquery-3.1.1.min.js"></script>
+    <script src="./stylesheets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="./javascripts/angular.min.js"></script>
+    <script src="./javascripts/angular-route.min.js"></script>
+
+    <!--<script src="./javascripts/myAngular.js"></script>-->
+    <script src="./javascripts/myJs.js"></script>
+
+
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<!--<a href="#login"><div class="out"><p>Sign out</p></div></a>-->
+<div class="container-fluid" id="box" style="margin: 0;padding: 0;">
+    <div class="row-fluid">
+
+        <div ng-view></div>
+
+        <!--The login page:start-->
+        <script type="text/ng-template" id="login.html">
+            <div class="span12">
+                <div class="container" style="padding:0;width: 100%">
+                    <header>
+                        <img src="./images/login.png" alt="">
+                    </header>
+                    <article>
+                        <div class="title"><b>Configuration Manager</b></div>
+                        <div class="both">
+                            <div class="login">
+                                <fieldset>
+                                    <h5><b>Login</b></h5>
+                                    <h6>Access your account</h6>
+
+                                    <div class="form">
+                                        <input type="text" placeholder="User Name">
+                                        <input type="password" placeholder="Password">
+                                        <a href="#/dashboard" id="login">Login</a>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                            <div class="register">
+                                <fieldset>
+                                    <h5><b>Sign Up</b></h5>
+                                    <h6>Create a new account</h6>
+
+                                    <div class="form">
+                                        <input type="text" placeholder="User Name">
+                                        <input type="password" placeholder="Password">
+                                        <input type="password" placeholder="Confirm password">
+                                        <a href="#" id="register">Register</a>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </script>
+        <!--The login page:end-->
+
+        <!--Dashboard:start-->
+        <script type="text/ng-template" id="dashboard.html">
+            <div class="span12" style="z-index: 1;">
+                <div class="container" style="padding:0;width: 100%">
+                    <header>
+                        <img src="./images/login.png" alt="">
+                        <div class="user">
+                            <h4>UserA</h4>
+                            <i class="fa fa-sort-desc" style="margin:5px;" onclick="showOut()"></i>
+                            <div class="signout" id="out">
+                                <div class="caret-down">
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                                <a href="#login">
+                                    <div class="out">
+                                        <p>Sign out</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <article>
+                        <div class="left">
+                            <div class="btn">
+                                <i class="fa fa-home" id="dsb">
+                                    <a onclick="ChangeColor1()" id="dsb-a" href="#dashboard"> Dashboard</a>
+                                </i>
+                            </div>
+                            <div class="btn">
+                                <i class="fa fa-users" id="um">
+                                    <a onclick="ChangeColor2()" id="um-a" href="#user"> User Management</a>
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <!--Dashboard-->
+                            <h4>Dashboard</h4>
+                            <div class="body">
+                                <div class="total">
+                                    <div class="number" id="num1">
+                                        <h1><b ng-bind="countall">156</b></h1>
+                                        <p>Total users</p>
+                                        <div id="color1"></div>
+                                    </div>
+                                    <div class="number" id="num2">
+                                        <h1><b ng-bind="countnew">56</b></h1>
+                                        <p>New users</p>
+                                        <div id="color2"></div>
+                                    </div>
+                                    <div class="number" id="num3">
+                                        <h1><b>100</b></h1>
+                                        <p>Users pending</p>
+                                        <div id="color3"></div>
+                                    </div>
+                                </div>
+                                <div class="report">
+                                    <h6>用户增长季度报告</h6>
+                                    <div class="img"></div>
+                                </div>
+                            </div>
+                            <!--Dashboard:end-->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </script>
+        <!--Dashboard:end-->
+
+        <!--User Management:start-->
+        <script type="text/ng-template" id="user.html">
+            <div class="span12" style="z-index: 1;">
+
+                <div class="container" style="padding:0;width: 100%">
+                    <header>
+                        <img src="./images/login.png" alt="">
+                        <div class="user">
+                            <h4>UserA</h4>
+                            <i class="fa fa-sort-desc" style="margin:5px;" onclick="showOut()"></i>
+
+
+                            <div class="signout" id="out1">
+                                <div class="caret-down">
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                                <a href="#login">
+                                    <div class="out">
+                                        <p>Sign out</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+
+                    <article>
+                        <div class="left">
+
+                            <div class="btn">
+                                <i class="fa fa-home" id="dsb1" style="color: #b8c7ce;">
+                                    <a onclick="ChangeColor1()" id="dsb1-a" href="#dashboard" style="color: #b8c7ce;"> Dashboard</a>
+                                </i>
+                            </div>
+                            <div class="btn">
+                                <i class="fa fa-users" id="um1" style="color: #ffffff;">
+                                    <a onclick="ChangeColor2()" id="um1-a" href="#user" style="color:#ffffff;"> User Management</a>
+                                </i>
+                            </div>
+
+                        </div>
+                        <div class="right">
+                            <!--User Management-->
+                            <h4>User Management</h4>
+                            <!--<button onclick="Add()"><i class="fa fa-plus">&nbsp;&nbsp;Add User</i></button>-->
+                            <button onclick="Add()"><i class="fa fa-plus">&nbsp;&nbsp;
+                                <a href="" onclick="Add()" ng-if="!user.$edit" style="font-size: 22px;text-decoration: none;"
+                                   >Add</a>
+                            </i></button>
+                            <div class="details">
+                                <div class="text"><p> &nbsp;User Details</p></div>
+                                <div class="table">
+                                    <table ng-table="tableParams" class="table table-bordered"
+                                           style="margin-top: 0;height: 100px;">
+                                        <tr>
+                                            <td>Action</td>
+                                            <td>Username</td>
+                                            <td>Created By</td>
+                                            <td>Created Date</td>
+                                            <td>Last Updated Date</td>
+                                        </tr>
+                                        <tr ng-repeat="user in users|filter:titleFilter" height="30px" style="">
+                                            <!--//遍历每一个对象-->
+                                            <td title="'Action'" class="action">
+                                                <a ng-if="!user.$edit" class="btn btn-default btn-xs"
+                                                   ng-click="user.$edit=true" style="border: none;font-size: 15px;">Edit</a>
+                                                <a ng-if="user.$edit" class="btn btn-default btn-xs"
+                                                   ng-click="user.$edit=false" style="border: none;font-size: 15px;">Save</a>
+                                                <a ng-if="user.$edit" class="btn btn-default btn-xs"
+                                                   ng-click="user.$edit=false" style="border: none;font-size: 15px;">Cancel</a>
+                                                <a ng-if="!user.$edit" class="btn btn-default btn-xs"
+                                                   ng-click="deleteUser($index)" data-toggle="windel"
+                                                   data-target="delete" style="border: none;font-size: 15px;">Delete</a>
+                                            </td>
+
+                                            <td title="'User Name'">
+                                                <span ng-if="!user.$edit">{{user.name}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text"
+                                                                               style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.name"
+                                                                               placeholder="{{user.name}}"></div>
+                                            </td>
+
+                                            <td title="'Create By'">
+                                                <span ng-if="!user.$edit">{{user.createname}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text"
+                                                                               style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.createname"
+                                                                               placeholder="{{user.createname}}"></div>
+                                            </td>
+
+                                            <td title="'Create Date'">
+                                                <span ng-if="!user.$edit">{{user.date}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text"
+                                                                               style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.date"
+                                                                               placeholder="{{user.date}}"></div>
+                                            </td>
+
+                                            <td title="'Last Updated Date'">
+                                                <span ng-if="!user.$edit">{{user.updates}}</span>
+                                                <div ng-if="user.$edit"><input class="form-control" type="text"
+                                                                               style="border:1px solid #bbbbbb;" ng-
+                                                                               model="user.updates"
+                                                                               placeholder="{{user.updates}}"></div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="paging">
+                                    <div class="chevron_right"><i class="fa fa-chevron-right"></i></div>
+                                    <div class="page_code"><p>1</p></div>
+                                    <div class="chevron_left"><i class="fa fa-chevron-left"></i></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </article>
+                </div>
+                <!--Add User windows-->
+                <div class="winadd" id="alert1">
+                    <div class="up"><p>Add User</p><b><a onclick="closeAdd()">x</a></b></div>
+                    <div class="middle" style="margin: 15px 10px;">
+                        <label for="name">User Name: </label>
+                        <input type="text" id="name" placeholder="User Name" ng-model="formData.text">
+                    </div>
+                    <div class="clear"></div>
+                    <div class="bottom">
+                        <button onclick="closeAdd()" ng-click="user_add()" data-dismiss="modal" ng-disabled="myForm.text.$error.required">Add</button>
+                    </div>
+                </div>
+                <!-- The hide layer-->
+                <div id="hide">
+                </div>
+
+                <!--Delete windows-->
+                <div class="windel fade delete" id="alert2" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <h3>Are you sure?</h3>
+                    <button id="yes" onclick="Delete()" data-dismiss="windel">YES</button>
+                    <button id="no" onclick="Delete()" data-dismiss="windel">NO</button>
+                </div>
+
+            </div>
+
+        </script>
+        <!--User Management:end-->
+
+    </div>
+</div>
+<script src="controller/myCtrl.js"></script>
+</body>
+</html>

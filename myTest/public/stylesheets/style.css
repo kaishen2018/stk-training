@@ -1,0 +1,649 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    min-width: 1300px;
+}
+
+img {
+    border: 0;
+    max-width: 100%
+}
+
+a {
+    text-decoration: none;
+    color: #111;
+}
+
+ul, ul li {
+    list-style: none;
+}
+
+.clear {
+    clear: both;
+}
+
+/*Scrollbar:start*/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 16px;
+    background-color: #ededed;
+    /*filter: alpha(opacity=0);*/
+
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #ededed;
+    filter: alpha(opacity=0);
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: gainsboro;
+    filter: alpha(opacity=50);
+}
+/*Scrollbar:end*/
+
+
+/*CSS for Login :start*/
+.span12 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+.container {
+    height: 768px;
+    background-color: #e1f1fa;
+}
+
+.container header {
+    height: 70px;
+    width: 100%;
+    background-color: #265a88;
+}
+
+.container img {
+    margin-left: 60px;
+    margin-top: 25px;
+}
+
+.article {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 698px;
+}
+
+article .title {
+    font-size: 1.3em;
+    margin: auto;
+    padding-top: 70px;
+    width: 40%;
+    color: #153B58;
+    text-align: center;
+}
+
+article .both {
+    width: 42%;
+    /*height:45%;*/
+    height: 340px;
+    margin: 35px auto;
+    border: 1px solid #265a88;
+
+}
+
+article .both .login {
+    float: left;
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid #265a88;
+}
+
+article .both .register {
+    background-color: white;
+    float: right;
+    height: 100%;
+    width: 50%;
+}
+
+article .both h5 {
+    font-size: 1.3em;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    color: #153B58;
+}
+
+article .both h6 {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    color: #B1B3C1;
+}
+
+.both .form {
+    height: 80%;
+    width: 85%;
+    margin: 15px auto;
+}
+
+.both input {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #B1B3C1;
+    border-radius: 8px;
+    margin-bottom: 28px;
+    padding-left: 10px;
+}
+
+.both a {
+    display: block;
+    height: 40px;
+    width: 45%;
+    border: 1px solid #B1B3C1;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 40px;
+    color: #000;
+    text-decoration: none;
+}
+
+.both a:hover {
+    text-decoration: none;
+}
+
+.both #login {
+    background-color: white;
+    margin: 15px auto;
+}
+
+.both #register {
+    background-color: #265a88;
+    color: white;
+    margin: 5px auto;
+}
+
+/*CSS for Login end*/
+
+/*CSS for Navigation bar  start*/
+.span1 {
+    width: 4%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    height: 100%;
+    border-left: 1px solid #adadad;
+
+}
+
+.span1 a {
+    display: block;
+    height: 25px;
+    width: 100%;
+    margin-top: 35px;
+    line-height: 25px;
+    text-align: center;
+
+}
+
+.span1 i {
+    color: #000;
+    font-size: larger;
+}
+
+.span1 i:hover {
+    color: red;
+}
+
+/*CSS for Navigation bar  end*/
+
+/*CSS for Dashboard start*/
+.container header .user {
+    float: right;
+    margin-right: 50px;
+    margin-top: 20px;
+    color: white;
+    width: 80px;
+}
+
+.container header h4 {
+    float: left;
+    color: white;
+    padding: 0;
+    height: 8px;
+}
+
+.container header h4:hover {
+    cursor: default;
+}
+
+.container header i {
+    color: white;
+    margin-left: 3px;
+    font-size: medium;
+}
+
+.container header i:hover {
+    cursor: pointer;
+}
+
+article .left {
+    width: 200px;
+    height:698px;
+    /*float: left;*/
+    position: absolute;
+    left:0;
+    top:70px;
+    background-color: #333333;
+}
+
+.left .btn {
+    height: 50px;
+    line-height: 50px;
+    width: 200px;
+    padding: 10px;
+    left:0;
+    border-bottom: 2px solid #444444;
+}
+
+.btn i {
+    font-size: 25px;
+    float: left;
+    margin-left: 1px;
+    color: #b8c7ce;
+    line-height: 30px;
+}
+
+.btn i a{
+    font-size: 18px;
+    color: #b8c7ce;
+    margin-left: 3px;
+}
+
+.btn #dsb,.btn #dsb1{
+    color: white;
+}
+.btn #dsb-a,.btn #dsb1-a{
+    color: white;
+}
+
+.btn i a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.right {
+    /*float: left;*/
+    position: absolute;
+    height: 100%;
+    left: 250px;
+    top: 70px;
+
+}
+
+.right h4 {
+    margin-left: 50px;
+    color: #265a88;
+}
+
+.right .body {
+    margin: 18px 70px;
+
+}
+.right .body .total{
+    height: 173px;
+}
+
+.right .body .number {
+    width: 250px;
+    height: 152px;
+    border: 1px solid #bababa;
+    color: #ffffff;
+    float: left;
+    position: relative;
+
+}
+
+.number h1 {
+    margin: 10px 20px 13px;
+
+}
+
+.number p {
+    float: left;
+    margin: 0 25px;
+    font-size: 1.5em;
+}
+
+.right .body #num1 {
+    background-color: #00c0ef;
+    margin-left: 30px;
+}
+
+.right .body #num2 {
+    background-color: #00a65a;
+    margin-left: 40px;
+}
+
+.right .body #num3 {
+    background-color: #dd4b39;
+    margin-left: 40px;
+}
+
+.right .body .total .number div{
+    height:30px;
+    width:100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.right .body #color1{
+    background-color:#33ccf2 ;
+}
+
+.right .body #color2{
+    background-color:#33b77b ;
+}
+.right .body #color3{
+    background-color:#e36f60 ;
+}
+
+
+.right .body .report{
+    width: 830px;
+    height:410px;
+    margin-left: 30px;
+    background-color: #ffffff;
+    border-top: 10px solid #dddddd;
+}
+
+.right .body .report h6{
+    font-size: 1.1em;
+    padding-left: 10px;
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+.right .body .report .img{
+    width: 100%;
+    height: 390px;
+    background-image: url("../images/raw_1481601648.png");
+    -webkit-background-size:100% 100%;
+    -moz-background-size: 100% 100%;
+    background-size:100% 100%;
+}
+
+/*CSS for the User Management*/
+.right button{
+    border:1px solid #bbbbbb;
+    background: #ffffff;
+    color:  #265a88;
+    width:130px;
+    height:45px;
+    font-size: 20px;
+    margin:15px 75px 20px;
+}
+
+.right .details{
+    width: 1018px;
+    height: 570px;
+    border:1px solid #bbbbbb;
+    background: #ffffff;
+    margin-left: 75px;
+}
+.right .details .text{
+    padding-left: 10px;
+    height: 38px;
+    line-height: 38px;
+    border-bottom:1px solid #bbbbbb;
+}
+
+.right .details .table{
+    width: 900px;
+    height: 470px;
+    margin: 10px auto;
+    border:1px solid #bbbbbb;
+}
+
+.right .details .table table{
+    width: 899px;
+
+}
+
+.right .details .table table #line1 td{
+    font-size: 14px;
+}
+
+.right .details .table table tr{
+    height: 40px;
+    border-bottom:1px solid #bbbbbb ;
+}
+.right .details .table table tr td{
+    width: 270px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-right:1px solid #bbbbbb;
+    font-size: 1.2em;
+}
+.right .details .table table tr td input{
+    margin: 8px auto;
+    height:35px;
+    width: 150px;
+    padding-left: 29px;
+    /*color:#bbbbbb ;*/
+    border:none;
+    color: #000;
+    /*display: none;*/
+}
+
+
+table tr td #show2{
+    display: none;
+}
+
+.right .details .table table tr td a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+.details .paging{
+    height: 20px;
+    width: 150px;
+    float: right;
+    margin: 0  6px 0;
+
+}
+
+.details .paging i{
+    color: #444444;
+}
+.details .paging .chevron_left{
+    float: right;
+    width:45px;
+    height:20px;
+    text-align: center;
+}
+
+.details .paging .page_code{
+    color: #92d2f1;
+    float: right;
+    width:40px;
+    height:20px;
+    text-align: center;
+}
+
+.details .paging .chevron_right{
+    float: right;
+    width:45px;
+    height:20px;
+    text-align: center;
+}
+
+/*The add user windows*/
+.winadd{
+    display: none;
+    position: absolute;
+    width:395px;
+    height:290px;
+    left:500px;
+    top:190px;
+    border:1px solid #bbbbbb;
+    z-index:3;
+    opacity: 1!important;
+    transition-duration: 0.4s;
+    background-color: white;
+
+}
+.winadd .up{
+    width:100%;
+    height: 45px;
+    font-size: 18px;
+    border-bottom: 1px solid #bbbbbb;
+}
+.winadd .up p{
+    padding: 10px 20px 0;
+    float: left;
+}
+
+.winadd .up b{
+    font-size: 20px;
+    float: right;
+    padding:6px 15px 0;
+}
+.winadd .up b a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+.winadd .middle label{
+   margin-left: 10px;
+    margin-top: 15px;
+}
+.winadd .middle input{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 8px;
+    height:38px;
+    width: 243px;
+    margin-left: 25px;
+    padding-left: 10px;
+    /*border-color: #bbbbbb;*/
+    box-shadow:none;
+    background:none;
+}
+
+.winadd .bottom{
+    float: right;
+    margin:110px 20px 10px;
+}
+.winadd button{
+    width:78px;
+    height:30px;
+    border: 1px solid #bbbbbb;
+    background-color: #7abbe0;
+
+}
+
+/*the hided div*/
+.row-fluid #hide{
+    position:absolute;
+    left:0;
+    top:0;
+    background-color:#000;
+    width:100%;
+    height:768px;
+    filter:alpha(opacity=50);
+    opacity:0.5;
+    display:none;
+    z-Index:2;
+}
+/*The Delete windows*/
+.windel{
+    display: none;
+    position: absolute;
+    width:250px;
+    height:160px;
+    left:550px;
+    top:280px;
+    border:1px solid #bbbbbb;
+    z-index:3;
+    opacity: 1;
+    transition-duration: 0.4s;
+    background-color: white;
+}
+
+.windel h3{
+    color: #005e89;
+    height:40px;
+    width:150px;
+    margin: 30px auto;
+}
+
+.windel button{
+    border:1px solid #bbbbbb;
+    background-color: #7abbe0;
+    color: #ffffff;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    width:80px;
+    margin:5px 15px;
+}
+.windel #yes{
+    float: left;
+}
+.windel #no{
+    float: right;
+}
+
+/*Sign out*/
+.signout{
+    float: right;
+    width: 90px;
+    height: 45px;
+    display: none;
+}
+.signout .caret-down{
+    transform: rotate(180deg);
+    margin:0 auto;
+    width: 14px;
+    height: 14px;
+}
+.signout .caret-down i{
+    font-size: 1.5em;
+    color: rgb(122,187,224);
+    text-align: center;
+}
+.signout .out{
+    width: 90px;
+    height: 40px;
+    z-index: 3;
+    background-color: rgb(122,187,224);
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    margin-top: -8px;
+}
+.signout a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+.signout .out{
+    font-size: 1.3em;
+}
