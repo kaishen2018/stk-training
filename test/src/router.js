@@ -3,91 +3,121 @@
  */
 var express = require("express");
 var router = express.Router();
-var conn = require('./connectData');
+var sd = require("silly-datetime");
+var pool = require('./connectData');
+
 
 var uid, uName, uAdmin, uDate, uLastDate;
-conn.connect();
+
 router.get('/', function (req, res) {
   // res.render('index',{title: "Express"});
-  conn.query('select * from users', function (err, rows, fields) {
-    if (err) {
-      console.log(err.stack);
-    }
-    //console.log(rows);
-    res.send(rows);
-  })
-});
-
-router.post('/', function (req, res) {
-  console.log('req.body: ', req.body);
-
-  var date = new Date();
-
-  uName = req.body.nName;
-  uAdmin = "Beck";
-  uDate = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
-  uLastDate = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
-
-  conn.query('insert into users(uName,uAdmin,uDate,uLastDate) values (?,?,?,?)', [uName, uAdmin, uDate, uLastDate], function (err, result) {
-    if (err) {
-      console.log(err.stack);
-    }
-    console.log(result);
-    conn.query('select * from users', function (err, rows) {
+  pool.getConnection(function (err, connection) {
+    connection.query('select * from users', function (err, rows, fields) {
       if (err) {
         console.log(err.stack);
       }
       //console.log(rows);
       res.send(rows);
+      connection.release();
     });
-  })
+  });
+
 });
 
-router.post("/login",function (req, res) {
-  conn.query("select * from users where uName=?",[req.body.uName],function (err, rows) {
-    if(err){
-      alert("username or password error");
-    }
-    res.send(rows);
+router.post('/', function (req, res) {
+  console.log('req.body: ', req.body);
+
+
+
+  uName = req.body.nName;
+  uAdmin = "Beck";
+  uDate = sd.format(new Date(), "YYYY-MM-DD");
+  uLastDate = sd.format(new Date(), "YYYY-MM-DD");
+  console.log(date.getTime());
+
+  pool.getConnection(function (err, connection) {
+    connection.query('insert into users(uName,uAdmin,uDate,uLastDate) values (?,?,?,?)', [uName, uAdmin, uDate, uLastDate], function (err, result) {
+      if (err) {
+        console.log(err.stack);
+      }
+      console.log(result);
+      conn.query('select * from users', function (err, rows) {
+        if (err) {
+          console.log(err.stack);
+        }
+        //console.log(rows);
+        res.send(rows);
+        connection.release();
+      });
+    });
   });
 });
 
+router.post("/login",function (req, res) {
+  pool.getConnection(function (err, connection) {
+    console.log(req.body.loginName);
+    connection.query("select count(*) as adminCount from users where uAdmin=?",[req.body.loginName],function (err, results) {
+      if(err){
+        alert("username or password error");
+      }
+      res.send(results);
+      connection.release();
+    });
+  });
+});
+router.post("/register",function (req, res) {
+  pool.getConnection(function (err, connection) {
+    connection.query("insert into users (uAdmin, uAdminPwd) values (?,?)",[req.body.registerName, req.body.registerPwd],function (err, result) {
+      if(err) console.log(err.statck);
+      res.send(result);
+      connection.release();
+    });
+  });
+});
 
 router.delete("/:user", function (req, res) {
-  conn.query("delete from users where uid=?",[req.params.user],function (err, result) {
-    console.log("--------> delete result"+ result);
-    if (err){
-      console.log(err.stack);
-    }
-    conn.query("select * from users",function (err, rows) {
-      if (err) console.log(err.stack);
-      res.send(rows);
-    })
-  })
+  pool.getConnection(function (err, connection) {
+    connection.query("delete from users where uid=?",[req.params.user],function (err, result) {
+      console.log("--------> delete result"+ result);
+      if (err){
+        console.log(err.stack);
+      }
+      connection.query("select * from users",function (err, rows) {
+        if (err) console.log(err.stack);
+        res.send(rows);
+        connection.release();
+      });
+    });
+  });
+
 });
 
 // click edit button to display data in the input
 router.get('/:uid',function (req, res) {
-  console.log("click edit to show the id: ",req.params.uid);
-  conn.query("select * from users where uid=?",[req.params.uid],function (err, rows) {
-    if (err) console.log("select sql error: "+err.stack);
-    res.send(rows);
+  pool.getConnection(function (err, connection) {
+    console.log("click edit to show the id: ",req.params.uid);
+    connection.query("select * from users where uid=?",[req.params.uid],function (err, rows) {
+      if (err) console.log("select sql error: "+err.stack);
+      res.send(rows);
+      connection.release();
+    });
   });
 });
 
-
 router.put("/",function (req, res) {
-  var date = new Date();
   uid= req.body.uid;
   uName = req.body.uName;
-  uLastDate = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+  uLastDate =sd.format(new Date(), "YYYY-MM-DD");
   console.log("--------------->click save to sql:");
-  conn.query("update users set uName=?,uLastDate=? where uid=?",[uName,uLastDate,uid],function (err, result) {
-    if(err) console.log(err.stack);
-    conn.query("select * from users", function (err, rows) {
+  pool.getConnection(function (err, connection) {
+    connection.query("update users set uName=?,uLastDate=? where uid=?",[uName,uLastDate,uid],function (err, result) {
       if(err) console.log(err.stack);
-      res.send(rows);
-    })
+      connection.query("select * from users", function (err, rows) {
+        if(err) console.log(err.stack);
+        res.send(rows);
+        connection.release();
+      });
+    });
   });
 });
 

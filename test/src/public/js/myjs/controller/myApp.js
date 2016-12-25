@@ -78,54 +78,47 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
 
 
 
-  /*$scope.error = false;
+  $scope.error = false;
   $scope.incomplete1 = false;
   $scope.incomplete2 = false;
 
-  $scope.loginName = "";
-  $scope.loginPwd = "";
-  $scope.registerName = "";
-  $scope.registerPwd = "";
-  $scope.registerPwd2 = "";
 
-  $scope.$watch("formData.loginName",function () {$scope.test1();});
-  $scope.$watch("formData.loginPwd",function () {$scope.test1();});
-  $scope.$watch("formData.registerName",function () {$scope.test2();});
-  $scope.$watch("formData.registerPwd",function () {$scope.test2();});
-  $scope.$watch("formData.registerPwd2",function () {$scope.test2();});
-  $scope.test1 = function() {
 
-    $scope.incomplete = false;
-    if (!$formData.loginName.length ||
-        !$formData.loginPwd.length ) {
-      $scope.incomplete = true;
-    }
-  };
-  $scope.test2 = function() {
-    if ($formData.registerPwd !== $formData.registerPwd2) {
-      $scope.error = true;
-    } else {
-      $scope.error = false;
-    }
-    $scope.incomplete = false;
-    if (!$formData.registerName.length ||
-        !$formData.registerPwd.length ||
-        !$formData.registerPwd2.length) {
-      $scope.incomplete = true;
-    }
-  };*/
 
 
 
   $scope.loginIn = function () {
-    $scope.isshow = true;
     $http.post("/api/index/login",$scope.formData)
         .success(function (data) {
-          $scope.formData = {};
+          console.log("receive",data);
+          console.log(data);
+
+          if(data[0].adminCount > 0){
+            $state.go("login");
+            $scope.isshow = true;
+
+          }else{
+            $state.go('index');
+            $scope.isshow = false;
+            console.log(data);
+            alert("登录失败,用户名或密码错误，重新输入！");
+          }
         })
         .error(function (err) {
           console.log("login error!");
         });
+  };
+
+  $scope.registerAdmin = function () {
+    $http.post("/api/index/register",$scope.formData)
+        .success(function (data) {
+          $scope.formData = {};
+          $state.go("index");
+          alert("恭喜你，注册成功！");
+        })
+        .error(function (err) {
+          alert("注册失败，请重新注册!");
+        })
   };
 
 
