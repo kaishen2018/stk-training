@@ -75,29 +75,59 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
   $scope.users = {};
   $scope.isshow = false;
 
-
-
-
   $scope.error = false;
   $scope.incomplete1 = false;
   $scope.incomplete2 = false;
 
+  $scope.totalUser = 0;
+  $scope.oldUser = 0;
+  $scope.newUser = 0;
 
+  $scope.showDashboard = function () {
+    $http.get("/api/index/showDashboard")
+        .success(function (data) {
+          var oldtotal = invalidateDate(data);
+          var num = data.length;
+          console.log(oldtotal, num);
+          $scope.totalUser = num;
+          $scope.oldUser = oldtotal;
+          $scope.newUser = num - oldtotal;
+        })
+        .error(function (err) {
 
+        });
+  };
+  function invalidateDate(data) {
+    var oldtotal = 0;
+    var currentDate = Date.now();
+    var dateCom = new Array(12);
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i].uDate.slice(5, 7));
 
+      dateCom[i] = "Jan";
+      dateCom[i] = "Jan" + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+      console.log(dateCom[i]);
+      var userDate = Date.parse(dateCom[i]);
+      var cha = Date.now() - userDate;
+      if(cha >24*60*60*1000){
+        oldtotal++;
+      }
+    }
+    return oldtotal;
+  }
 
 
   $scope.loginIn = function () {
-    $http.post("/api/index/login",$scope.formData)
+    $http.post("/api/index/login", $scope.formData)
         .success(function (data) {
-          console.log("receive",data);
+          console.log("receive", data);
           console.log(data);
 
-          if(data[0].adminCount > 0){
+          if (data[0].adminCount > 0) {
             $state.go("login");
             $scope.isshow = true;
 
-          }else{
+          } else {
             $state.go('index');
             $scope.isshow = false;
             console.log(data);
@@ -110,7 +140,7 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
   };
 
   $scope.registerAdmin = function () {
-    $http.post("/api/index/register",$scope.formData)
+    $http.post("/api/index/register", $scope.formData)
         .success(function (data) {
           $scope.formData = {};
           $state.go("index");
