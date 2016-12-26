@@ -394,7 +394,7 @@ article .left {
     width:130px;
     height:45px;
     font-size: 20px;
-    margin:15px 75px 20px;
+    margin:15px 45px 20px;
 }
 
 .right .details{
@@ -402,7 +402,7 @@ article .left {
     height: 570px;
     border:1px solid #bbbbbb;
     background: #ffffff;
-    margin-left: 75px;
+    margin-left: 45px;
 }
 .right .details .text{
     padding-left: 10px;
@@ -413,7 +413,8 @@ article .left {
 
 .right .details .table{
     width: 900px;
-    height: 470px;
+    height: 458px;
+    overflow: hidden;
     margin: 10px auto;
     border:1px solid #bbbbbb;
 }
@@ -467,7 +468,7 @@ table tr td #show2{
     height: 20px;
     width: 150px;
     float: right;
-    margin: 0  6px 0;
+    margin: 0  45px 0;
 
 }
 

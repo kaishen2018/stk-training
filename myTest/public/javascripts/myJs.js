@@ -6,6 +6,9 @@
 //     $("#box").height($(window).height());
 // }
 
+function refresh(){
+    window.location.reload();//强制刷新
+}
 
 /*To show and hide the sign out logo*/
 var flag = true;
@@ -39,7 +42,6 @@ function Edit() {
     $("td input").css({
         "border": "1px solid #bbbbbb",
         "color": "#bbbbbb"
-
     });
 }
 
@@ -58,11 +60,10 @@ function Cancel() {
 
 //$("#alert2").css({"display":"none"});
 function Delete() {
-    var alert2 = document.getElementById("alert2");
-    if (alert2.style.display == "none")
-        alert2.style.display = "block";
-    else
-        alert2.style.display = "none";
+        $("#alert2").css({"display":"block"});
+}
+function closeDelete() {
+    $("#alert2").css({"display":"none"});
 }
 
 

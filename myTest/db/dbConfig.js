@@ -1,5 +1,5 @@
-/**
- * Created by banana.cao on 12/21/2016.
+/*
+ * Created by Administrator on 2016/12/25.
  */
 module.exports =
     {

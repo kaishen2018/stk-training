@@ -1,5 +1,4 @@
 var express = require('express');
-// var app = express();
 var router = express.Router();
 var sd = require('silly-datetime');
 var time = sd.format(new Date(), 'YYYY-MM-DD');//获取当前日期
@@ -10,18 +9,14 @@ var userSQL = require('../db/UserSQL');
 //连接数据库
 var connection = mysql.createConnection(dbConfig.mysql);
 connection.connect();
-
-/*var server = app.listen(8088, function () {
-
-    var host = server.address().address
-    var port = server.address().port
-
-    console.log("Example app listening at http://%s:%s", host, port)
-
-});*/
-
-/* GET home page. */
+/* GET users listing.
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+*/
+/* Get data in the database */
 router.get('/', function (req, res, next) {
+    //使用render方法，将message变量传入index模板，渲染成HTML网页。
     //res.render('index', {title: 'Express'});
     connection.query(userSQL.queryAll, function (err, rows, fields) {
         if (err) {
@@ -31,12 +26,24 @@ router.get('/', function (req, res, next) {
     });
 });
 
+/*get  user number*/
+router.get('/',function(req,res){
+
+    connection.query(userSQL.countall,function(err,rows,fields){
+        if (err) {
+            console.log(err.stack);
+        }
+        res.send(rows);
+    });
+
+});
+
+/*insert users*/
 router.post('/', function (req, res) {
     var name = req.body.text;
     console.log("req.body: ", name);
     var time = sd.format(new Date(), 'YYYY-MM-DD');
     console.log(time);
-
     connection.query(userSQL.insert, [name,name,time,time], function (err, result) {
         if (err) {
             console.log(err.stack);
@@ -49,41 +56,46 @@ router.post('/', function (req, res) {
         });
     });
 });
-// 添加用户
-/*router.get('/user', function (req, res, next) {
-    console.log(">>user");
 
-    // 获取前台页面传过来的参数
-    var param = req.query || req.params;
-    // 建立连接 增加一个用户信息
-    connection.insert(userSQL.insert, [param.name], function (err,connection) {
-        if (err) throw err;
-
-        /!*!// 以json形式，把操作结果返回给前台页面
-         responseJSON(res, result);
-         // 释放连接
-         connection.release();*!/
-
-    });
-    //查询
-    connection.query(userSQL.queryAll, [param.name], function (err, connection) {
-        if (err) throw err;
-        for (var i=0;i<connection.length;i++){
-            arr[i]=connection[i].name;
+/*delete users*/
+router.delete('/:uid', function (req, res) {
+    var uid = req.params.uid;//获取控制器传过来的对象
+    console.log("req.params: ", uid);
+    connection.query(userSQL.delete, [uid], function (err, result) {
+        if (err) {
+            console.log(err.stack);
         }
-        var arr=userSQL.queryAll;
-        res.send(arr);
+        connection.query(userSQL.queryAll, function (err, rows, fields) {
+            if (err) {
+                console.log(err.stack);
+            }
+            res.send(rows);
+
+        });
     });
-    //删除
-    connection.delete(userSQL.delete, [param.name], function (err, connection) {
+});
 
+/*edit users*/
+router.put('/:uid', function (req, res) {
+    var uid = req.params.uid;
+    var name=req.body.name;
+    var createname=req.body.createname;
+    var date=req.body.date;
+    var updates=sd.format(new Date(), 'YYYY-MM-DD');
+    console.log("req.body: ", uid,name,createname,date,updates);
+    connection.query(userSQL.update, [name,createname,date,updates,uid], function (err, result) {
+        if (err) {
+            console.log(err.stack);
+        }
+        connection.query(userSQL.queryAll, function (err, rows, fields) {
+            if (err) {
+                console.log(err.stack);
+            }
+            res.send(rows);
+        });
     });
-    //修改
-    connection.update(userSQL.update, [param.name], function (err, connection) {
-
-    });
+});
 
 
-});*/
-// connection.end();//关闭连接
+
 module.exports = router;
