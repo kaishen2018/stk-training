@@ -24,7 +24,7 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
+//用实例方法listen，让其监听事先设定的端口（3000）
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
