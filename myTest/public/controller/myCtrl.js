@@ -16,13 +16,21 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.controller("myCtrl", function ($scope,$http) {
     /*To display the total number of users*/
-    $http.get('/user')
+    $http.get('/users/'+"total")
         .success(function (data)  {
-            $scope.total=data;
-            console.log(data);
-        })
+            $scope.total=data[0].total;
+            console.log(total);
+        }).error(function (err) {
+        console.log('Error:',err);
+    });
     /*To display the number of the new users*/
-
+    $http.get('/users/'+"new")
+        .success(function (data)  {
+            $scope.newnum=data[0].newnumber;
+            console.log(newnum);
+        }).error(function (err) {
+        console.log('Error:',err);
+    });
 
     /*To show data from the database*/
     $scope.formData = {};
@@ -63,12 +71,12 @@ app.controller("myCtrl", function ($scope,$http) {
     };
 
     /*To edit user information*/
-    $scope.userdata={};
+    $scope.userdata={};//初始化一个对象
     $scope.user_edit=function(uid){
         $http.put('/users/'+uid,$scope.userdata)//两个参数：1.url地址,2.传给路由的对象   put(url，data)
             .success(function(data){
-                $scope.userdata={};
-                $scope.users = data;
+                $scope.userdata={};//将对象变为空
+                $scope.users = data;//将路由传过来的对象赋给users让他去遍历这个数组
                 console.log(data);
             })
             .error(function (err) {

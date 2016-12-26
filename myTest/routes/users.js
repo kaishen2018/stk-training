@@ -14,6 +14,32 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 */
+/*get  user number*/
+router.get('/total',function(req,res){
+
+    connection.query(userSQL.countall,function(err,rows,fields){
+        if (err) {
+            console.log(err.stack);
+        }
+        res.send(rows);
+    });
+
+});
+
+/!*get  new user number*!/
+router.get('/new',function(req,res){
+    var newdate=(sd.format(new Date(), 'YYYY-MM-DD')).toString();
+   // var date=SELECT  STR_TO_DATE(?,'%Y-%m-%d');
+    connection.query(userSQL.countnew,[newdate],function(err,rows,fields){
+        if (err) {
+            console.log(err.stack);
+        }
+        console.log(rows);
+        res.send(rows);
+    });
+
+});
+
 /* Get data in the database */
 router.get('/', function (req, res, next) {
     //使用render方法，将message变量传入index模板，渲染成HTML网页。
@@ -24,18 +50,6 @@ router.get('/', function (req, res, next) {
         }
         res.send(rows);
     });
-});
-
-/*get  user number*/
-router.get('/',function(req,res){
-
-    connection.query(userSQL.countall,function(err,rows,fields){
-        if (err) {
-            console.log(err.stack);
-        }
-        res.send(rows);
-    });
-
 });
 
 /*insert users*/
