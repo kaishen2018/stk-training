@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login-register</title>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <!--top-->
+                    <div class="top">
+                        <div class="top_login">
+                            <div class="l_logo">
+                                <i class="fa fa-th-large" style="font-size:28px;color: white"></i>
+                            </div>
+                            <div class="r_logo">
+                                <p style="white-space: nowrap">Configuration Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <div class="title" style="line-height: 150px;">
+                                <p style="white-space: nowrap">Configuration Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-6 column">
+
+                            <!--Login-->
+                            <div class="login">
+                                <div class="title" style="height: 35px">
+                                    <p style="white-space: nowrap">Login</p>
+                                </div>
+                                <div class="tagging">
+                                    <p style="white-space: nowrap">Access your account</p>
+                                </div>
+                                <form method="post">
+                                    <div class="text_input">
+                                        <input name="loginName" ng-model="loginData.loginName" type="text"
+                                               placeholder="User Name">
+                                    </div>
+                                    <div class="text_input">
+                                        <input name="loginPwd" ng-model="loginData.loginPwd" type="password"
+                                               placeholder="Password">
+                                    </div>
+                                    <div class="text_input">
+                                        <a ui-sref="main" ng-click="login()"><input type="button" value="Login"
+                                                                                    style="background-color: white;width: 120px;height: 50px;margin-top: 30px">
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 column">
+                            <!--Register-->
+                            <div class="register">
+                                <div class="title" style="height: 35px">
+                                    <p style="white-space: nowrap">Sign Up</p>
+                                </div>
+                                <div class="tagging">
+                                    <p style="white-space: nowrap">Create a new accunt</p>
+                                </div>
+                                <form method="post">
+                                    <div class="text_input">
+                                        <input name="registerName" ng-model="registerData.registerName" type="text" placeholder="User Name">
+                                    </div>
+                                    <div class="text_input">
+                                        <input name="registerPwd" ng-model="registerData.registerPwd" type="password" placeholder="Password">
+                                    </div>
+                                    <div class="text_input">
+                                        <input name="registerPwd2" ng-model="registerData.registerPwd2" type="password" placeholder="Confirm password">
+                                    </div>
+                                    <div class="text_input">
+                                        <input ng-click="register()" id="btn_register" type="submit" value="Register"
+                                               style="background-color: #005e89;width: 120px;height: 50px;color: white">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

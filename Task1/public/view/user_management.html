@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user_management</title>
+</head>
+<body>
+<!--Right column-->
+<div class="right_column">
+    <div class="r_title">
+        <p style="white-space: nowrap;margin-left: 60px">User Management</p>
+    </div>
+    <div class="r_add_user">
+
+        <!-- Small modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"
+                style="width: 158px;height: 48px;background-color: white;color:black;border-width: 0px;outline: none">
+            <div class="r_add_user_i">
+                <i class="fa fa-plus" style="font-size: 25px"></i>
+            </div>
+            <div class="r_add_user_text">
+                <p style="white-space: nowrap;">Add User</p>
+            </div>
+        </button>
+
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Add User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="myForm">
+                            <div class="form-group">
+                                <label>User Name:</label>
+                                <input type="text" name="name" class="userName"
+                                       ng-model="formData.name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>User Pwd:</label>
+                                <input type="text" name="pwd" class="userName"
+                                       ng-model="formData.pwd" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button ng-click="user_add()" type="button" class="btn btn-default" data-dismiss="modal"
+                                ng-disabled="myForm.text.$error.required">Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user_management">
+        <div class="table_title">User Details</div>
+        <div class="table_frame">
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <th>User Name</th>
+                    <th>Created By</th>
+                    <th>Created Date</th>
+                    <th>Last Updated Date</th>
+                </tr>
+                <tr ng-repeat="user in users">
+                    <td title="'date'" width="200">
+                        <a href="" ng-if="!user.$edit" class="btn btn-default btn-xs"
+                           ng-click="user.$edit=true;getData(user.uid)">Edit</a>
+
+                        <a href="" ng-if="user.$edit" class="btn btn-default btn-xs"
+                           ng-click="user.$edit=false;user_update()">Save</a>
+
+                        <a href="" ng-if="user.$edit" class="btn btn-default btn-xs"
+                           ng-click="user.$edit=false">Cancel</a>
+
+                        <!-- Small modal -->
+                        <button ng-if="!user.$edit" ng-click="getData(user.uid)"
+                                class="btn btn-default btn-xs"
+                                data-toggle="modal" data-target=".bs-example-modal-w">
+                            Delete
+                        </button>
+                    </td>
+                    <td title="'Name'">
+                        <span ng-if="!user.$edit">{{user.fName}}</span>
+                        <div ng-if="user.$edit">
+                            <input class="form-control" type="text"
+                                   ng-model="userData.fName" required>
+                        </div>
+                    </td>
+                    <td title="'Name'">
+                        <span ng-if="!user.$edit">{{user.lName}}</span>
+                        <div ng-if="user.$edit">
+                            <input class="form-control" type="text"
+                                   ng-model="userData.lName" required>
+                        </div>
+                    </td>
+                    <td title="'date'">
+                        <span ng-if="!user.$edit">{{user.fDate}}</span>
+                        <div ng-if="user.$edit">
+                            <input class="form-control" type="text"
+                                   ng-model="userData.fDate" required>
+                        </div>
+                    </td>
+                    <td title="'date'">
+                        <span ng-if="!user.$edit">{{user.lDate}}</span>
+                        <div ng-if="user.$edit">
+                            <input class="form-control" type="text"
+                                   ng-model="userData.lDate" required>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="page">
+            <div class="page_left">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div class="pager_num"><p>1</p></div>
+            <div class="pager_right">
+                <i class="fa fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+    <div id="w_box" class="modal fade bs-example-modal-w" tabindex="-1" role="dialog"
+         aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Are you sure?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                            ng-click="user_delete(userData.uid)">
+                        Yes
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
