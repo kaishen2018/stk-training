@@ -42,7 +42,7 @@
                                     <div class="form">
                                         <input type="text" placeholder="User Name">
                                         <input type="password" placeholder="Password">
-                                        <a href="#/dashboard" id="login">Login</a>
+                                        <a href="#/dashboard" id="login" onclick="refresh()">Login</a>
                                     </div>
 
                                 </fieldset>
@@ -93,7 +93,7 @@
                         <div class="left">
                             <div class="btn">
                                 <i class="fa fa-home" id="dsb">
-                                    <a onclick="ChangeColor1()" id="dsb-a" href="#dashboard"> Dashboard</a>
+                                    <a onclick="ChangeColor1(); refresh()" id="dsb-a" href="#dashboard"> Dashboard</a>
                                 </i>
                             </div>
                             <div class="btn">
@@ -167,7 +167,7 @@
 
                             <div class="btn">
                                 <i class="fa fa-home" id="dsb1" style="color: #b8c7ce;">
-                                    <a onclick="ChangeColor1()" id="dsb1-a" href="#dashboard" style="color: #b8c7ce;"> Dashboard</a>
+                                    <a onclick="ChangeColor1(); refresh()" id="dsb1-a" href="#dashboard" style="color: #b8c7ce;"> Dashboard</a>
                                 </i>
                             </div>
                             <div class="btn">
