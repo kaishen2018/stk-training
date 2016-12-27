@@ -56,7 +56,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '../../../views/pageNav.html',
             controller: function ($scope) {
               console.log("login success");
-
             }
           },
           pages: {
@@ -86,34 +85,84 @@ app.controller('myCtrl', function myCtrl($scope, $http, $state, $stateParams) {
   $scope.showDashboard = function () {
     $http.get("/api/index/showDashboard")
         .success(function (data) {
-          var oldtotal = invalidateDate(data);
+          var oldUserToal = invalidateDate(data);
           var num = data.length;
-          console.log(oldtotal, num);
+          console.log(oldUserToal, num);
           $scope.totalUser = num;
-          $scope.oldUser = oldtotal;
-          $scope.newUser = num - oldtotal;
+          $scope.oldUser = oldUserToal;
+          $scope.newUser = num - oldUserToal;
+          console.log($scope.totalUser,$scope.oldUser,$scope.newUser);
         })
         .error(function (err) {
 
         });
   };
   function invalidateDate(data) {
-    var oldtotal = 0;
+    var oldUserToal = 0;
     var currentDate = Date.now();
-    var dateCom = new Array(12);
+    var dateCom ="";
+    var month ;
     for (var i = 0; i < data.length; i++) {
       console.log(data[i].uDate.slice(5, 7));
-
-      dateCom[i] = "Jan";
-      dateCom[i] = "Jan" + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
-      console.log(dateCom[i]);
-      var userDate = Date.parse(dateCom[i]);
+      month = data[i].uDate.slice(5, 7);
+      switch (month) {
+        case "1":
+          month = "Jan";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "2":
+          month = "Feb";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "3":
+          month = "Mar";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "4":
+          month = "April";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "5":
+          month = "May";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "6":
+          month = "Jun";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "7":
+          month = "Jul";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "8":
+          month = "Aug";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "9":
+          month = "Sep";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "10":
+          month = "Oct";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "11":
+          month = "Nov";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+        case "12":
+          month = "Dec";
+          dateCom = month + " " + data[i].uDate.slice(8, 10) + ", " + data[i].uDate.slice(0, 4);
+          break;
+      }
+      console.log(dateCom);
+      var userDate = Date.parse(dateCom);
       var cha = Date.now() - userDate;
-      if(cha >24*60*60*1000){
-        oldtotal++;
+      if (cha > 24 * 60 * 60 * 1000) {
+        oldUserToal++;
       }
     }
-    return oldtotal;
+    return oldUserToal;
   }
 
 
